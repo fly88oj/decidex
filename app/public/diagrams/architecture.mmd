@@ -1,0 +1,24 @@
+graph LR
+    subgraph Application["Your Application"]
+        A["Business Logic<br/>routing · if/else · escalation"]
+    end
+    subgraph Decidex["Decidex Service"]
+        B["POST /v1/systemone"] --> C["Contract Validation"]
+        C --> D["Parallel Evaluation"]
+        D --> E["Answer Assembler"]
+    end
+    subgraph Engine["LLM Engine"]
+        F["Qwen3-8B<br/>+ core-8b adapter"]
+        G["KV Prefix Cache<br/>LRU · 4GB"]
+    end
+    A -->|"state + questions"| B
+    E -->|"typed answers<br/>+ probabilities"| A
+    D --> F
+    G -.-> F
+    style A fill:#dbeafe,stroke:#3b82f6
+    style B fill:#f3e8ff,stroke:#8b5cf6
+    style C fill:#f3e8ff,stroke:#8b5cf6
+    style D fill:#f3e8ff,stroke:#8b5cf6
+    style E fill:#f3e8ff,stroke:#8b5cf6
+    style F fill:#dcfce7,stroke:#16a34a
+    style G fill:#fef3c7,stroke:#f59e0b

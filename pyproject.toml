@@ -1,0 +1,71 @@
+[project]
+name = "decidex"
+version = "1.0.0"
+description = "Local, open reimplementation of the Jev / TypeSafe System One decision-model API: state in, typed calibrated decisions out."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Decidex contributors" }]
+keywords = ["jev", "typesafe", "system-one", "decision-model", "structured-output", "llm", "logits"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+]
+dependencies = [
+    "fastapi>=0.110",
+    "uvicorn>=0.29",
+    "pydantic>=2.6",
+    "httpx>=0.27",
+]
+
+[project.optional-dependencies]
+embedding = ["sentence-transformers>=3.0"]
+llm = ["torch>=2.2", "transformers>=4.44", "accelerate>=0.33"]
+all = ["sentence-transformers>=3.0", "torch>=2.2", "transformers>=4.44", "accelerate>=0.33"]
+compat = ["typesafe-sdk>=0.7"]
+dev = ["pytest>=8.0", "ruff>=0.6"]
+
+[project.urls]
+Homepage = "https://github.com/fly88oj/decidex"
+Repository = "https://github.com/fly88oj/decidex"
+Issues = "https://github.com/fly88oj/decidex/issues"
+Changelog = "https://github.com/fly88oj/decidex/blob/main/CHANGELOG.md"
+
+[project.scripts]
+decidex = "decidex.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["decidex*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "slow: tests that load large models or run long (deselect with '-m \"not slow\"')",
+]
+
+[tool.ruff]
+line-length = 110
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["F", "E", "W", "I"]
+
+[tool.ruff.lint.per-file-ignores]
+# data pools are dominated by long single-line string literals
+"benchmarks/distill_generate*.py" = ["E501"]
+"benchmarks/dataset.py" = ["E501"]
+"benchmarks/compare_corpus.py" = ["E501"]

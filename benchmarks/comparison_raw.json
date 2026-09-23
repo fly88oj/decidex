@@ -1,0 +1,3778 @@
+{
+  "official": {
+    "docs-payouts": [
+      {
+        "status": 200,
+        "ms": 1610,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "is_urgent": {
+              "type": "noul",
+              "noul": 0.95
+            },
+            "department": {
+              "type": "choice",
+              "choice": "billing",
+              "probabilities": {
+                "technical": 0.11,
+                "sales": 0,
+                "billing": 0.89
+              },
+              "confidence": 0.84
+            },
+            "frustration": {
+              "type": "score",
+              "score": 1.05,
+              "legend": {
+                "0": "Calm",
+                "1": "Frustrated",
+                "2": "Very angry"
+              },
+              "probabilities": {
+                "0": 0,
+                "1": 0.95,
+                "2": 0.05
+              },
+              "confidence": 0.92
+            }
+          },
+          "usage": {
+            "input_tokens": 402,
+            "output_tokens": 73,
+            "cost": 1.6884e-05
+          },
+          "id": "gen-dec-1790064180-1Dy0XJHux1k88xRCXaAR",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "docs-ticket-paths": [
+      {
+        "status": 200,
+        "ms": 809,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "refund_requested": {
+              "type": "noul",
+              "noul": 0.99
+            },
+            "policy_supports": {
+              "type": "noul",
+              "noul": 0.98
+            },
+            "request_type": {
+              "type": "choice",
+              "choice": "refund",
+              "probabilities": {
+                "refund": 1,
+                "information": 0,
+                "rebooking": 0
+              },
+              "confidence": 1
+            }
+          },
+          "usage": {
+            "input_tokens": 513,
+            "output_tokens": 76,
+            "cost": 2.1546e-05
+          },
+          "id": "gen-dec-1790064180-c8xcs7rH9eKNFwt53zj0",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "docs-structured-instructions": [
+      {
+        "status": 200,
+        "ms": 841,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "same_person": {
+              "type": "noul",
+              "noul": 0.49
+            }
+          },
+          "usage": {
+            "input_tokens": 377,
+            "output_tokens": 21,
+            "cost": 1.5834e-05
+          },
+          "id": "gen-dec-1790064181-QoVYdD1zpr0ci43JKQYl",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "fan-refund": [
+      {
+        "status": 200,
+        "ms": 690,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "route": {
+              "type": "choice",
+              "choice": "billing",
+              "probabilities": {
+                "technical": 0,
+                "billing": 1,
+                "sales": 0
+              },
+              "confidence": 1
+            },
+            "urgent": {
+              "type": "noul",
+              "noul": 0.95
+            },
+            "polite": {
+              "type": "noul",
+              "noul": 0.51
+            },
+            "level": {
+              "type": "score",
+              "score": 0.85,
+              "legend": {
+                "0": "Calm, just stating facts",
+                "1": "Frustrated but civil",
+                "2": "Very angry, strong language"
+              },
+              "probabilities": {
+                "0": 0.17,
+                "1": 0.82,
+                "2": 0.01
+              },
+              "confidence": 0.73
+            }
+          },
+          "usage": {
+            "input_tokens": 433,
+            "output_tokens": 85,
+            "cost": 1.8186e-05
+          },
+          "id": "gen-dec-1790064182-2ZkrNVDiQGWUaiMULOxe",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "fan-api500": [
+      {
+        "status": 200,
+        "ms": 965,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "route": {
+              "type": "choice",
+              "choice": "technical",
+              "probabilities": {
+                "technical": 1,
+                "billing": 0,
+                "sales": 0
+              },
+              "confidence": 1
+            },
+            "urgent": {
+              "type": "noul",
+              "noul": 0.75
+            },
+            "polite": {
+              "type": "noul",
+              "noul": 0.82
+            },
+            "level": {
+              "type": "score",
+              "score": 1.98,
+              "legend": {
+                "0": "Cosmetic; no impact",
+                "1": "Degraded; workaround exists",
+                "2": "Blocking; no workaround"
+              },
+              "probabilities": {
+                "0": 0,
+                "1": 0.02,
+                "2": 0.98
+              },
+              "confidence": 0.97
+            }
+          },
+          "usage": {
+            "input_tokens": 430,
+            "output_tokens": 85,
+            "cost": 1.806e-05
+          },
+          "id": "gen-dec-1790064183-dclzjQKGQKHZjKPnmuhY",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "fan-upgrade": [
+      {
+        "status": 200,
+        "ms": 945,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "route": {
+              "type": "choice",
+              "choice": "sales",
+              "probabilities": {
+                "technical": 0,
+                "billing": 0,
+                "sales": 1
+              },
+              "confidence": 1
+            },
+            "urgent": {
+              "type": "noul",
+              "noul": 0.18
+            },
+            "polite": {
+              "type": "noul",
+              "noul": 0.96
+            },
+            "level": {
+              "type": "score",
+              "score": 0,
+              "legend": {
+                "0": "Calm, just stating facts",
+                "1": "Frustrated but civil",
+                "2": "Very angry, strong language"
+              },
+              "probabilities": {
+                "0": 1,
+                "1": 0,
+                "2": 0
+              },
+              "confidence": 1
+            }
+          },
+          "usage": {
+            "input_tokens": 430,
+            "output_tokens": 85,
+            "cost": 1.806e-05
+          },
+          "id": "gen-dec-1790064184-zWr9bse12mGPDDm6i21v",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "fan-login": [
+      {
+        "status": 200,
+        "ms": 773,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "route": {
+              "type": "choice",
+              "choice": "technical",
+              "probabilities": {
+                "technical": 1,
+                "billing": 0,
+                "sales": 0
+              },
+              "confidence": 1
+            },
+            "urgent": {
+              "type": "noul",
+              "noul": 0.67
+            },
+            "polite": {
+              "type": "noul",
+              "noul": 0.9
+            },
+            "level": {
+              "type": "score",
+              "score": 0.48,
+              "legend": {
+                "0": "Calm, just stating facts",
+                "1": "Frustrated but civil",
+                "2": "Very angry, strong language"
+              },
+              "probabilities": {
+                "0": 0.52,
+                "1": 0.48,
+                "2": 0
+              },
+              "confidence": 0.29
+            }
+          },
+          "usage": {
+            "input_tokens": 431,
+            "output_tokens": 85,
+            "cost": 1.8102e-05
+          },
+          "id": "gen-dec-1790064185-JgmJnmCJvgH6HyS9Ij6B",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "hard-sarcasm": [
+      {
+        "status": 200,
+        "ms": 1299,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "tone": {
+              "type": "choice",
+              "choice": "angry",
+              "probabilities": {
+                "angry": 1,
+                "excited": 0,
+                "calm": 0
+              },
+              "confidence": 1
+            },
+            "frustration": {
+              "type": "score",
+              "score": 1.19,
+              "legend": {
+                "0": "Calm, just stating facts",
+                "1": "Frustrated but civil",
+                "2": "Very angry, strong language"
+              },
+              "probabilities": {
+                "0": 0,
+                "1": 0.81,
+                "2": 0.19
+              },
+              "confidence": 0.71
+            }
+          },
+          "usage": {
+            "input_tokens": 402,
+            "output_tokens": 58,
+            "cost": 1.6884e-05
+          },
+          "id": "gen-dec-1790064185-OK2XlhKYmGCXQwi4u0MA",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "hard-negations": [
+      {
+        "status": 200,
+        "ms": 976,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "wants_refund": {
+              "type": "noul",
+              "noul": 0.84
+            },
+            "refund_here": {
+              "type": "noul",
+              "noul": 0.06
+            },
+            "urgent": {
+              "type": "noul",
+              "noul": 0.03
+            }
+          },
+          "usage": {
+            "input_tokens": 378,
+            "output_tokens": 56,
+            "cost": 1.5876e-05
+          },
+          "id": "gen-dec-1790064187-q7W4MHYZWVeqUaelj1Ig",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "hard-nearmiss": [
+      {
+        "status": 200,
+        "ms": 1269,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "kind": {
+              "type": "choice",
+              "choice": "feature_request",
+              "probabilities": {
+                "feature_request": 1,
+                "bug_report": 0,
+                "question": 0
+              },
+              "confidence": 1
+            }
+          },
+          "usage": {
+            "input_tokens": 352,
+            "output_tokens": 41,
+            "cost": 1.4784e-05
+          },
+          "id": "gen-dec-1790064188-8hFIbFCDQdH28b4qToS8",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "hard-pii": [
+      {
+        "status": 200,
+        "ms": 953,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "a_has_pii": {
+              "type": "noul",
+              "noul": 0.99
+            },
+            "b_has_pii": {
+              "type": "noul",
+              "noul": 0.21
+            }
+          },
+          "usage": {
+            "input_tokens": 372,
+            "output_tokens": 42,
+            "cost": 1.5624e-05
+          },
+          "id": "gen-dec-1790064189-K13dbiVcJBhvE3K0VVsD",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "edge-choice10": [
+      {
+        "status": 200,
+        "ms": 1268,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "pick": {
+              "type": "choice",
+              "choice": "billing",
+              "probabilities": {
+                "dept_4": 0,
+                "dept_8": 0,
+                "dept_9": 0,
+                "dept_1": 0,
+                "dept_3": 0,
+                "billing": 1,
+                "dept_6": 0,
+                "dept_0": 0,
+                "dept_2": 0,
+                "dept_5": 0,
+                "dept_7": 0
+              },
+              "confidence": 1
+            }
+          },
+          "usage": {
+            "input_tokens": 477,
+            "output_tokens": 114,
+            "cost": 2.0034e-05
+          },
+          "id": "gen-dec-1790064190-bZKSZOXZJlNr434pdPxe",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "edge-choice26": [
+      {
+        "status": 200,
+        "ms": 805,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "pick": {
+              "type": "choice",
+              "choice": "press_release",
+              "probabilities": {
+                "type_3": 0,
+                "type_17": 0,
+                "type_20": 0,
+                "type_10": 0,
+                "type_13": 0,
+                "type_8": 0,
+                "type_23": 0,
+                "type_5": 0,
+                "type_2": 0,
+                "type_4": 0,
+                "type_22": 0,
+                "type_16": 0,
+                "type_21": 0,
+                "type_18": 0,
+                "type_15": 0,
+                "type_1": 0,
+                "type_24": 0,
+                "type_0": 0,
+                "type_14": 0,
+                "type_12": 0,
+                "type_6": 0,
+                "type_19": 0,
+                "type_11": 0,
+                "type_7": 0,
+                "type_9": 0,
+                "press_release": 1
+              },
+              "confidence": 1
+            }
+          },
+          "usage": {
+            "input_tokens": 765,
+            "output_tokens": 266,
+            "cost": 3.213e-05
+          },
+          "id": "gen-dec-1790064191-cWTJmOR6gJqXORkqTpG2",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "edge-choice100": [
+      {
+        "status": 200,
+        "ms": 870,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "pick": {
+              "type": "choice",
+              "choice": "refund_request",
+              "probabilities": {
+                "intent_45": 0,
+                "intent_50": 0,
+                "intent_4": 0,
+                "intent_33": 0,
+                "intent_63": 0,
+                "intent_22": 0,
+                "intent_52": 0,
+                "intent_91": 0,
+                "intent_26": 0,
+                "intent_25": 0,
+                "intent_58": 0,
+                "intent_29": 0,
+                "intent_8": 0,
+                "intent_11": 0,
+                "intent_14": 0,
+                "intent_65": 0,
+                "intent_78": 0,
+                "intent_43": 0,
+                "intent_51": 0,
+                "intent_56": 0,
+                "intent_17": 0,
+                "intent_39": 0,
+                "intent_12": 0,
+                "intent_30": 0,
+                "intent_18": 0,
+                "intent_71": 0,
+                "intent_16": 0,
+                "intent_83": 0,
+                "intent_48": 0,
+                "intent_59": 0,
+                "intent_31": 0,
+                "intent_44": 0,
+                "intent_6": 0,
+                "intent_69": 0,
+                "intent_5": 0,
+                "intent_41": 0,
+                "intent_23": 0,
+                "intent_32": 0,
+                "intent_36": 0,
+                "intent_89": 0,
+                "intent_47": 0,
+                "intent_61": 0,
+                "intent_2": 0,
+                "intent_21": 0,
+                "intent_34": 0,
+                "intent_82": 0,
+                "intent_86": 0,
+                "intent_85": 0,
+                "intent_42": 0,
+                "intent_46": 0,
+                "intent_98": 0,
+                "intent_54": 0,
+                "intent_76": 0,
+                "intent_3": 0,
+                "intent_66": 0,
+                "intent_37": 0,
+                "intent_90": 0,
+                "intent_94": 0,
+                "intent_20": 0,
+                "intent_40": 0,
+                "intent_13": 0,
+                "intent_95": 0,
+                "intent_92": 0,
+                "intent_57": 0,
+                "intent_49": 0,
+                "intent_93": 0,
+                "intent_96": 0,
+                "intent_74": 0,
+                "intent_73": 0,
+                "intent_79": 0,
+                "intent_28": 0,
+                "intent_9": 0,
+                "intent_67": 0,
+                "intent_15": 0,
+                "intent_55": 0,
+                "intent_87": 0,
+                "intent_38": 0,
+                "intent_53": 0,
+                "intent_80": 0,
+                "intent_81": 0,
+                "intent_97": 0,
+                "intent_64": 0,
+                "intent_68": 0,
+                "intent_35": 0,
+                "intent_1": 0,
+                "intent_60": 0,
+                "intent_84": 0,
+                "intent_19": 0,
+                "intent_70": 0,
+                "intent_72": 0,
+                "intent_88": 0,
+                "intent_75": 0,
+                "intent_62": 0,
+                "intent_24": 0,
+                "intent_27": 0,
+                "refund_request": 1,
+                "intent_0": 0,
+                "intent_7": 0,
+                "intent_77": 0,
+                "intent_10": 0
+              },
+              "confidence": 1
+            }
+          },
+          "usage": {
+            "input_tokens": 2473,
+            "output_tokens": 1006,
+            "cost": 0.000103866
+          },
+          "id": "gen-dec-1790064192-EIEN0PPFMvUHoM1yq1f8",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "edge-score2": [
+      {
+        "status": 200,
+        "ms": 715,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "slow": {
+              "type": "score",
+              "score": 0.01,
+              "legend": {
+                "0": "Noticeable",
+                "1": "Painful"
+              },
+              "probabilities": {
+                "0": 0.99,
+                "1": 0.01
+              },
+              "confidence": 0.98
+            }
+          },
+          "usage": {
+            "input_tokens": 306,
+            "output_tokens": 17,
+            "cost": 1.2852e-05
+          },
+          "id": "gen-dec-1790064193-JY6AHd7kwMieTeiI5XFi",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "edge-score10": [
+      {
+        "status": 200,
+        "ms": 715,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "sev": {
+              "type": "score",
+              "score": 8.73,
+              "legend": {
+                "0": "Severity level 0",
+                "1": "Severity level 1",
+                "2": "Severity level 2",
+                "3": "Severity level 3",
+                "4": "Severity level 4",
+                "5": "Severity level 5",
+                "6": "Severity level 6",
+                "7": "Severity level 7",
+                "8": "Severity level 8",
+                "9": "Severity level 9"
+              },
+              "probabilities": {
+                "0": 0,
+                "1": 0,
+                "2": 0,
+                "3": 0,
+                "4": 0,
+                "5": 0,
+                "6": 0.01,
+                "7": 0.02,
+                "8": 0.18,
+                "9": 0.79
+              },
+              "confidence": 0.89
+            }
+          },
+          "usage": {
+            "input_tokens": 384,
+            "output_tokens": 17,
+            "cost": 1.6128e-05
+          },
+          "id": "gen-dec-1790064194-mHANlROBZ8IbAMHgU5wl",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "edge-no-instructions": [
+      {
+        "status": 400,
+        "ms": 425,
+        "body": {
+          "error": {
+            "message": "[\n  {\n    \"code\": \"invalid_union\",\n    \"errors\": [\n      [\n        {\n          \"expected\": \"string\",\n          \"code\": \"invalid_type\",\n          \"path\": [],\n          \"message\": \"Invalid input: expected string, received undefined\"\n        }\n      ],\n      [\n        {\n          \"expected\": \"record\",\n          \"code\": \"invalid_type\",\n          \"path\": [],\n          \"message\": \"Invalid input: expected record, received undefined\"\n        }\n      ],\n      [\n        {\n          \"expected\": \"array\",\n          \"code\": \"invalid_type\",\n          \"path\": [],\n          \"message\": \"Invalid input: expected array, received undefined\"\n        }\n      ]\n    ],\n    \"path\": [\n      \"questions\",\n      \"is_billing\",\n      \"instructions\"\n    ],\n    \"message\": \"Invalid input\"\n  }\n]",
+            "code": 400
+          },
+          "user_id": "user_2tAVpO1BDEDLszyHi9RirhAWj3Y"
+        }
+      }
+    ],
+    "edge-null-desc": [
+      {
+        "status": 200,
+        "ms": 804,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "intent": {
+              "type": "choice",
+              "choice": "question",
+              "probabilities": {
+                "question": 1,
+                "other": 0,
+                "complaint": 0
+              },
+              "confidence": 1
+            }
+          },
+          "usage": {
+            "input_tokens": 302,
+            "output_tokens": 39,
+            "cost": 1.2684e-05
+          },
+          "id": "gen-dec-1790064195-8vzVCK3g1BsaMFbga7Fw",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "i18n-mixed": [
+      {
+        "status": 200,
+        "ms": 742,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "a_refund": {
+              "type": "noul",
+              "noul": 0.98
+            },
+            "b_refund": {
+              "type": "noul",
+              "noul": 0.91
+            },
+            "a_urgent": {
+              "type": "noul",
+              "noul": 0.97
+            }
+          },
+          "usage": {
+            "input_tokens": 372,
+            "output_tokens": 59,
+            "cost": 1.5624e-05
+          },
+          "id": "gen-dec-1790064195-aOrTuABuCDzt62vP0lwC",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "long-policy": [
+      {
+        "status": 200,
+        "ms": 801,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "esc": {
+              "type": "noul",
+              "noul": 0.98
+            },
+            "refund_window": {
+              "type": "noul",
+              "noul": 0.99
+            },
+            "section_count": {
+              "type": "score",
+              "score": 1.12,
+              "legend": {
+                "0": "A short note",
+                "1": "A moderate policy",
+                "2": "An exhaustive manual"
+              },
+              "probabilities": {
+                "0": 0.02,
+                "1": 0.83,
+                "2": 0.15
+              },
+              "confidence": 0.74
+            }
+          },
+          "usage": {
+            "input_tokens": 2416,
+            "output_tokens": 51,
+            "cost": 0.000101472
+          },
+          "id": "gen-dec-1790064196-SosSdb603h8vxdQf0MIV",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "dup-refund": [
+      {
+        "status": 200,
+        "ms": 812,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "route": {
+              "type": "choice",
+              "choice": "billing",
+              "probabilities": {
+                "sales": 0,
+                "technical": 0,
+                "billing": 1
+              },
+              "confidence": 1
+            },
+            "urgent": {
+              "type": "noul",
+              "noul": 0.95
+            }
+          },
+          "usage": {
+            "input_tokens": 367,
+            "output_tokens": 55,
+            "cost": 1.5414e-05
+          },
+          "id": "gen-dec-1790064197-yVX8OlcfkKsAcncQtaxb",
+          "provider": "TypeSafe"
+        }
+      },
+      {
+        "status": 200,
+        "ms": 772,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "route": {
+              "type": "choice",
+              "choice": "billing",
+              "probabilities": {
+                "billing": 1,
+                "technical": 0,
+                "sales": 0
+              },
+              "confidence": 1
+            },
+            "urgent": {
+              "type": "noul",
+              "noul": 0.95
+            }
+          },
+          "usage": {
+            "input_tokens": 367,
+            "output_tokens": 55,
+            "cost": 1.5414e-05
+          },
+          "id": "gen-dec-1790064198-bFeShTfQr9oaF3ED70OW",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "dup-sarcasm": [
+      {
+        "status": 200,
+        "ms": 803,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "tone": {
+              "type": "choice",
+              "choice": "angry",
+              "probabilities": {
+                "excited": 0,
+                "angry": 1,
+                "calm": 0
+              },
+              "confidence": 1
+            }
+          },
+          "usage": {
+            "input_tokens": 351,
+            "output_tokens": 42,
+            "cost": 1.4742e-05
+          },
+          "id": "gen-dec-1790064199-d17cq4oVcncy27m75n0A",
+          "provider": "TypeSafe"
+        }
+      },
+      {
+        "status": 200,
+        "ms": 733,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "tone": {
+              "type": "choice",
+              "choice": "angry",
+              "probabilities": {
+                "excited": 0,
+                "calm": 0,
+                "angry": 1
+              },
+              "confidence": 1
+            }
+          },
+          "usage": {
+            "input_tokens": 351,
+            "output_tokens": 42,
+            "cost": 1.4742e-05
+          },
+          "id": "gen-dec-1790064199-ScDweRzkuLWvIQy3vP9U",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "inv-2q": [
+      {
+        "status": 200,
+        "ms": 685,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "intent": {
+              "type": "choice",
+              "choice": "refund",
+              "probabilities": {
+                "rebooking": 0,
+                "information": 0,
+                "refund": 1
+              },
+              "confidence": 1
+            }
+          },
+          "usage": {
+            "input_tokens": 345,
+            "output_tokens": 40,
+            "cost": 1.449e-05
+          },
+          "id": "gen-dec-1790064200-MAwh2S921YyiznphKSVW",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "inv-10q": [
+      {
+        "status": 200,
+        "ms": 692,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "intent": {
+              "type": "choice",
+              "choice": "refund",
+              "probabilities": {
+                "refund": 1,
+                "rebooking": 0,
+                "information": 0
+              },
+              "confidence": 1
+            },
+            "angry": {
+              "type": "noul",
+              "noul": 0.97
+            },
+            "urgent": {
+              "type": "noul",
+              "noul": 0.73
+            },
+            "mentions_product": {
+              "type": "noul",
+              "noul": 0.94
+            },
+            "threat_churn": {
+              "type": "noul",
+              "noul": 0.96
+            },
+            "frustration": {
+              "type": "score",
+              "score": 1.36,
+              "legend": {
+                "0": "Calm, just stating facts",
+                "1": "Frustrated but civil",
+                "2": "Very angry, strong language"
+              },
+              "probabilities": {
+                "0": 0,
+                "1": 0.64,
+                "2": 0.36
+              },
+              "confidence": 0.46
+            },
+            "severity": {
+              "type": "score",
+              "score": 1.89,
+              "legend": {
+                "0": "Cosmetic; no impact",
+                "1": "Degraded; workaround exists",
+                "2": "Blocking; no workaround"
+              },
+              "probabilities": {
+                "0": 0,
+                "1": 0.11,
+                "2": 0.89
+              },
+              "confidence": 0.84
+            },
+            "channel": {
+              "type": "choice",
+              "choice": "review",
+              "probabilities": {
+                "review": 0.86,
+                "email": 0.03,
+                "chat": 0.11
+              },
+              "confidence": 0.79
+            },
+            "policy_risk": {
+              "type": "noul",
+              "noul": 0.39
+            }
+          },
+          "usage": {
+            "input_tokens": 577,
+            "output_tokens": 191,
+            "cost": 2.4234e-05
+          },
+          "id": "gen-dec-1790064201-gdd9KPWAu0Q8ecqG6SON",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "battery-00": [
+      {
+        "status": 200,
+        "ms": 736,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "q00": {
+              "type": "noul",
+              "noul": 0.97
+            }
+          },
+          "usage": {
+            "input_tokens": 289,
+            "output_tokens": 22,
+            "cost": 1.2138e-05
+          },
+          "id": "gen-dec-1790064202-JjmMZZdG9IpPDtvxwTN9",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "battery-01": [
+      {
+        "status": 200,
+        "ms": 763,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "q01": {
+              "type": "noul",
+              "noul": 0.05
+            }
+          },
+          "usage": {
+            "input_tokens": 286,
+            "output_tokens": 22,
+            "cost": 1.2012e-05
+          },
+          "id": "gen-dec-1790064202-YXsaFqmbsQrhGkLBPs4V",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "battery-02": [
+      {
+        "status": 200,
+        "ms": 754,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "q02": {
+              "type": "noul",
+              "noul": 0.99
+            }
+          },
+          "usage": {
+            "input_tokens": 292,
+            "output_tokens": 22,
+            "cost": 1.2264e-05
+          },
+          "id": "gen-dec-1790064203-sNpFp4FBdONpHBEeUbyC",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "battery-03": [
+      {
+        "status": 200,
+        "ms": 723,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "q03": {
+              "type": "noul",
+              "noul": 0.01
+            }
+          },
+          "usage": {
+            "input_tokens": 285,
+            "output_tokens": 22,
+            "cost": 1.197e-05
+          },
+          "id": "gen-dec-1790064204-7EQh2vLCDwkvX7jjNuzK",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "battery-04": [
+      {
+        "status": 200,
+        "ms": 668,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "q04": {
+              "type": "noul",
+              "noul": 0.99
+            }
+          },
+          "usage": {
+            "input_tokens": 315,
+            "output_tokens": 22,
+            "cost": 1.323e-05
+          },
+          "id": "gen-dec-1790064204-AaByLfDc9Te1W0soTFGh",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "battery-05": [
+      {
+        "status": 200,
+        "ms": 718,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "q05": {
+              "type": "noul",
+              "noul": 0.02
+            }
+          },
+          "usage": {
+            "input_tokens": 283,
+            "output_tokens": 22,
+            "cost": 1.1886e-05
+          },
+          "id": "gen-dec-1790064205-TNUuYshKqKXs1I4yai7f",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "battery-06": [
+      {
+        "status": 200,
+        "ms": 704,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "q06": {
+              "type": "noul",
+              "noul": 0.96
+            }
+          },
+          "usage": {
+            "input_tokens": 298,
+            "output_tokens": 22,
+            "cost": 1.2516e-05
+          },
+          "id": "gen-dec-1790064206-fm7ylslOXLg8aRTEU2BW",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "battery-07": [
+      {
+        "status": 200,
+        "ms": 805,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "q07": {
+              "type": "noul",
+              "noul": 0.02
+            }
+          },
+          "usage": {
+            "input_tokens": 288,
+            "output_tokens": 22,
+            "cost": 1.2096e-05
+          },
+          "id": "gen-dec-1790064207-Z3BqIGids7gGI0KT8YxK",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "battery-08": [
+      {
+        "status": 200,
+        "ms": 709,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "q08": {
+              "type": "noul",
+              "noul": 0.97
+            }
+          },
+          "usage": {
+            "input_tokens": 290,
+            "output_tokens": 22,
+            "cost": 1.218e-05
+          },
+          "id": "gen-dec-1790064207-0f6bfwulsY5mbxlfVwtS",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "battery-09": [
+      {
+        "status": 200,
+        "ms": 728,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "q09": {
+              "type": "noul",
+              "noul": 0.01
+            }
+          },
+          "usage": {
+            "input_tokens": 282,
+            "output_tokens": 22,
+            "cost": 1.1844e-05
+          },
+          "id": "gen-dec-1790064208-am9VwbPXT3VujpznrJPo",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "battery-10": [
+      {
+        "status": 200,
+        "ms": 1309,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "q10": {
+              "type": "noul",
+              "noul": 0.05
+            }
+          },
+          "usage": {
+            "input_tokens": 289,
+            "output_tokens": 22,
+            "cost": 1.2138e-05
+          },
+          "id": "gen-dec-1790064209-asA6Vb2gvp7KvkbVS9XR",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "battery-11": [
+      {
+        "status": 200,
+        "ms": 784,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "q11": {
+              "type": "noul",
+              "noul": 0.8
+            }
+          },
+          "usage": {
+            "input_tokens": 290,
+            "output_tokens": 22,
+            "cost": 1.218e-05
+          },
+          "id": "gen-dec-1790064210-CqB6zHJKnMVW9ELvTpTr",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "battery-12": [
+      {
+        "status": 200,
+        "ms": 726,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "q12": {
+              "type": "noul",
+              "noul": 0.98
+            }
+          },
+          "usage": {
+            "input_tokens": 290,
+            "output_tokens": 22,
+            "cost": 1.218e-05
+          },
+          "id": "gen-dec-1790064211-YszCMmDxavt4NZP1qdyg",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "battery-13": [
+      {
+        "status": 200,
+        "ms": 1320,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "q13": {
+              "type": "noul",
+              "noul": 0.02
+            }
+          },
+          "usage": {
+            "input_tokens": 289,
+            "output_tokens": 22,
+            "cost": 1.2138e-05
+          },
+          "id": "gen-dec-1790064212-aZQYqwxGJHc4Nny77EAi",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "battery-14": [
+      {
+        "status": 200,
+        "ms": 1071,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "q14": {
+              "type": "noul",
+              "noul": 0.96
+            }
+          },
+          "usage": {
+            "input_tokens": 292,
+            "output_tokens": 22,
+            "cost": 1.2264e-05
+          },
+          "id": "gen-dec-1790064213-TLLSO2kfueEpe1GlW2xB",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "battery-15": [
+      {
+        "status": 200,
+        "ms": 867,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "q15": {
+              "type": "noul",
+              "noul": 0.06
+            }
+          },
+          "usage": {
+            "input_tokens": 285,
+            "output_tokens": 22,
+            "cost": 1.197e-05
+          },
+          "id": "gen-dec-1790064214-VWBv5yy37TAEaPH29jI3",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "battery-16": [
+      {
+        "status": 200,
+        "ms": 827,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "q16": {
+              "type": "noul",
+              "noul": 0.99
+            }
+          },
+          "usage": {
+            "input_tokens": 304,
+            "output_tokens": 22,
+            "cost": 1.2768e-05
+          },
+          "id": "gen-dec-1790064215-W8JhylFmgwhoy4ZAIOmI",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "battery-17": [
+      {
+        "status": 200,
+        "ms": 882,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "q17": {
+              "type": "noul",
+              "noul": 0.04
+            }
+          },
+          "usage": {
+            "input_tokens": 306,
+            "output_tokens": 22,
+            "cost": 1.2852e-05
+          },
+          "id": "gen-dec-1790064216-AOBb6h7cysag74qbYkrW",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "battery-18": [
+      {
+        "status": 200,
+        "ms": 1295,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "q18": {
+              "type": "noul",
+              "noul": 0.91
+            }
+          },
+          "usage": {
+            "input_tokens": 292,
+            "output_tokens": 22,
+            "cost": 1.2264e-05
+          },
+          "id": "gen-dec-1790064217-3JnLOoeMdiSwkLjmVuUr",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "battery-19": [
+      {
+        "status": 200,
+        "ms": 782,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "q19": {
+              "type": "noul",
+              "noul": 0.83
+            }
+          },
+          "usage": {
+            "input_tokens": 304,
+            "output_tokens": 22,
+            "cost": 1.2768e-05
+          },
+          "id": "gen-dec-1790064218-PfN1asDoQE1pBShFHGdE",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "battery-20": [
+      {
+        "status": 200,
+        "ms": 696,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "q20": {
+              "type": "noul",
+              "noul": 0.03
+            }
+          },
+          "usage": {
+            "input_tokens": 301,
+            "output_tokens": 22,
+            "cost": 1.2642e-05
+          },
+          "id": "gen-dec-1790064219-n6380A7xKakH6tdZqF0S",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "battery-21": [
+      {
+        "status": 200,
+        "ms": 806,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "q21": {
+              "type": "noul",
+              "noul": 0.04
+            }
+          },
+          "usage": {
+            "input_tokens": 292,
+            "output_tokens": 22,
+            "cost": 1.2264e-05
+          },
+          "id": "gen-dec-1790064219-JpK7GRIXv9hp3NPd7u49",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "battery-22": [
+      {
+        "status": 200,
+        "ms": 743,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "q22": {
+              "type": "noul",
+              "noul": 0.27
+            }
+          },
+          "usage": {
+            "input_tokens": 297,
+            "output_tokens": 22,
+            "cost": 1.2474e-05
+          },
+          "id": "gen-dec-1790064220-yX27PKi8zn0moCrFaI52",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "battery-23": [
+      {
+        "status": 200,
+        "ms": 703,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "q23": {
+              "type": "noul",
+              "noul": 0.99
+            }
+          },
+          "usage": {
+            "input_tokens": 301,
+            "output_tokens": 22,
+            "cost": 1.2642e-05
+          },
+          "id": "gen-dec-1790064221-4WfcVDuj8gNwc04An0LH",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "battery-24": [
+      {
+        "status": 200,
+        "ms": 775,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "q24": {
+              "type": "choice",
+              "choice": "billing",
+              "probabilities": {
+                "billing": 1,
+                "sales": 0,
+                "technical": 0
+              },
+              "confidence": 1
+            }
+          },
+          "usage": {
+            "input_tokens": 349,
+            "output_tokens": 40,
+            "cost": 1.4658e-05
+          },
+          "id": "gen-dec-1790064222-9EZfPaqKFVAAUxxn0OIF",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "battery-25": [
+      {
+        "status": 200,
+        "ms": 736,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "q25": {
+              "type": "choice",
+              "choice": "technical",
+              "probabilities": {
+                "sales": 0,
+                "technical": 1,
+                "billing": 0
+              },
+              "confidence": 1
+            }
+          },
+          "usage": {
+            "input_tokens": 353,
+            "output_tokens": 40,
+            "cost": 1.4826e-05
+          },
+          "id": "gen-dec-1790064222-HE6BlEgRIYW3JcXjqxcT",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "battery-26": [
+      {
+        "status": 200,
+        "ms": 694,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "q26": {
+              "type": "choice",
+              "choice": "sales",
+              "probabilities": {
+                "billing": 0,
+                "sales": 1,
+                "technical": 0
+              },
+              "confidence": 1
+            }
+          },
+          "usage": {
+            "input_tokens": 352,
+            "output_tokens": 40,
+            "cost": 1.4784e-05
+          },
+          "id": "gen-dec-1790064223-5SnzB12TMx8V4qWPxYsc",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "battery-27": [
+      {
+        "status": 200,
+        "ms": 772,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "q27": {
+              "type": "choice",
+              "choice": "french",
+              "probabilities": {
+                "german": 0,
+                "english": 0,
+                "spanish": 0,
+                "french": 1
+              },
+              "confidence": 1
+            }
+          },
+          "usage": {
+            "input_tokens": 362,
+            "output_tokens": 52,
+            "cost": 1.5204e-05
+          },
+          "id": "gen-dec-1790064224-JMzRPeoCCQlx5P3o9KHe",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "battery-28": [
+      {
+        "status": 200,
+        "ms": 751,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "q28": {
+              "type": "choice",
+              "choice": "german",
+              "probabilities": {
+                "french": 0,
+                "german": 1,
+                "english": 0,
+                "spanish": 0
+              },
+              "confidence": 1
+            }
+          },
+          "usage": {
+            "input_tokens": 361,
+            "output_tokens": 53,
+            "cost": 1.5162e-05
+          },
+          "id": "gen-dec-1790064225-MRq0d3LV2lHBviAnIKmO",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "battery-29": [
+      {
+        "status": 200,
+        "ms": 870,
+        "body": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "q29": {
+              "type": "choice",
+              "choice": "english",
+              "probabilities": {
+                "spanish": 0,
+                "french": 0,
+                "english": 1,
+                "german": 0
+              },
+              "confidence": 1
+            }
+          },
+          "usage": {
+            "input_tokens": 365,
+            "output_tokens": 51,
+            "cost": 1.533e-05
+          },
+          "id": "gen-dec-1790064225-u0cIJkhzM2loWdTQmTLT",
+          "provider": "TypeSafe"
+        }
+      }
+    ],
+    "err-missing-state": [
+      {
+        "status": 400,
+        "ms": 766,
+        "body": {
+          "error": {
+            "message": "[\n  {\n    \"expected\": \"string\",\n    \"code\": \"invalid_type\",\n    \"path\": [\n      \"model\"\n    ],\n    \"message\": \"Invalid input: expected string, received undefined\"\n  },\n  {\n    \"code\": \"invalid_union\",\n    \"errors\": [\n      [\n        {\n          \"expected\": \"string\",\n          \"code\": \"invalid_type\",\n          \"path\": [],\n          \"message\": \"Invalid input: expected string, received undefined\"\n        }\n      ],\n      [\n        {\n          \"expected\": \"record\",\n          \"code\": \"invalid_type\",\n          \"path\": [],\n          \"message\": \"Invalid input: expected record, received undefined\"\n        }\n      ],\n      [\n        {\n          \"expected\": \"array\",\n          \"code\": \"invalid_type\",\n          \"path\": [],\n          \"message\": \"Invalid input: expected array, received undefined\"\n        }\n      ]\n    ],\n    \"path\": [\n      \"state\"\n    ],\n    \"message\": \"Invalid input\"\n  }\n]",
+            "code": 400
+          },
+          "user_id": "user_2tAVpO1BDEDLszyHi9RirhAWj3Y"
+        }
+      }
+    ],
+    "err-state-type": [
+      {
+        "status": 400,
+        "ms": 398,
+        "body": {
+          "error": {
+            "message": "[\n  {\n    \"expected\": \"string\",\n    \"code\": \"invalid_type\",\n    \"path\": [\n      \"model\"\n    ],\n    \"message\": \"Invalid input: expected string, received undefined\"\n  },\n  {\n    \"code\": \"invalid_union\",\n    \"errors\": [\n      [\n        {\n          \"expected\": \"string\",\n          \"code\": \"invalid_type\",\n          \"path\": [],\n          \"message\": \"Invalid input: expected string, received number\"\n        }\n      ],\n      [\n        {\n          \"expected\": \"record\",\n          \"code\": \"invalid_type\",\n          \"path\": [],\n          \"message\": \"Invalid input: expected record, received number\"\n        }\n      ],\n      [\n        {\n          \"expected\": \"array\",\n          \"code\": \"invalid_type\",\n          \"path\": [],\n          \"message\": \"Invalid input: expected array, received number\"\n        }\n      ]\n    ],\n    \"path\": [\n      \"state\"\n    ],\n    \"message\": \"Invalid input\"\n  }\n]",
+            "code": 400
+          },
+          "user_id": "user_2tAVpO1BDEDLszyHi9RirhAWj3Y"
+        }
+      }
+    ],
+    "err-empty-questions": [
+      {
+        "status": 400,
+        "ms": 407,
+        "body": {
+          "error": {
+            "message": "[\n  {\n    \"expected\": \"string\",\n    \"code\": \"invalid_type\",\n    \"path\": [\n      \"model\"\n    ],\n    \"message\": \"Invalid input: expected string, received undefined\"\n  },\n  {\n    \"code\": \"custom\",\n    \"path\": [\n      \"questions\"\n    ],\n    \"message\": \"At least one question is required\"\n  }\n]",
+            "code": 400
+          },
+          "user_id": "user_2tAVpO1BDEDLszyHi9RirhAWj3Y"
+        }
+      }
+    ],
+    "err-bad-type": [
+      {
+        "status": 400,
+        "ms": 404,
+        "body": {
+          "error": {
+            "message": "[\n  {\n    \"expected\": \"string\",\n    \"code\": \"invalid_type\",\n    \"path\": [\n      \"model\"\n    ],\n    \"message\": \"Invalid input: expected string, received undefined\"\n  },\n  {\n    \"code\": \"invalid_union\",\n    \"errors\": [],\n    \"note\": \"No matching discriminator\",\n    \"discriminator\": \"type\",\n    \"options\": [\n      \"noul\",\n      \"choice\",\n      \"score\"\n    ],\n    \"path\": [\n      \"questions\",\n      \"q\",\n      \"type\"\n    ],\n    \"message\": \"Invalid discriminator value. Expected 'noul' | 'choice' | 'score'\"\n  }\n]",
+            "code": 400
+          },
+          "user_id": "user_2tAVpO1BDEDLszyHi9RirhAWj3Y"
+        }
+      }
+    ],
+    "err-choice-300": [
+      {
+        "status": 400,
+        "ms": 387,
+        "body": {
+          "error": {
+            "message": "[\n  {\n    \"expected\": \"string\",\n    \"code\": \"invalid_type\",\n    \"path\": [\n      \"model\"\n    ],\n    \"message\": \"Invalid input: expected string, received undefined\"\n  }\n]",
+            "code": 400
+          },
+          "user_id": "user_2tAVpO1BDEDLszyHi9RirhAWj3Y"
+        }
+      }
+    ],
+    "err-noul-bad-key": [
+      {
+        "status": 400,
+        "ms": 2349,
+        "body": {
+          "error": {
+            "message": "[\n  {\n    \"expected\": \"string\",\n    \"code\": \"invalid_type\",\n    \"path\": [\n      \"model\"\n    ],\n    \"message\": \"Invalid input: expected string, received undefined\"\n  },\n  {\n    \"code\": \"invalid_union\",\n    \"errors\": [\n      [\n        {\n          \"expected\": \"string\",\n          \"code\": \"invalid_type\",\n          \"path\": [],\n          \"message\": \"Invalid input: expected string, received undefined\"\n        }\n      ],\n      [\n        {\n          \"expected\": \"record\",\n          \"code\": \"invalid_type\",\n          \"path\": [],\n          \"message\": \"Invalid input: expected record, received undefined\"\n        }\n      ],\n      [\n        {\n          \"expected\": \"array\",\n          \"code\": \"invalid_type\",\n          \"path\": [],\n          \"message\": \"Invalid input: expected array, received undefined\"\n        }\n      ]\n    ],\n    \"path\": [\n      \"questions\",\n      \"q\",\n      \"criteria\",\n      \"true\"\n    ],\n    \"message\": \"Invalid input\"\n  },\n  {\n    \"code\": \"invalid_union\",\n    \"errors\": [\n      [\n        {\n          \"expected\": \"string\",\n          \"code\": \"invalid_type\",\n          \"path\": [],\n          \"message\": \"Invalid input: expected string, received undefined\"\n        }\n      ],\n      [\n        {\n          \"expected\": \"record\",\n          \"code\": \"invalid_type\",\n          \"path\": [],\n          \"message\": \"Invalid input: expected record, received undefined\"\n        }\n      ],\n      [\n        {\n          \"expected\": \"array\",\n          \"code\": \"invalid_type\",\n          \"path\": [],\n          \"message\": \"Invalid input: expected array, received undefined\"\n        }\n      ]\n    ],\n    \"path\": [\n      \"questions\",\n      \"q\",\n      \"criteria\",\n      \"false\"\n    ],\n    \"message\": \"Invalid input\"\n  }\n]",
+            "code": 400
+          },
+          "user_id": "user_2tAVpO1BDEDLszyHi9RirhAWj3Y"
+        }
+      }
+    ],
+    "err-unknown-model": [
+      {
+        "status": 400,
+        "ms": 710,
+        "body": {
+          "error": {
+            "message": "Model gpt-4o does not exist",
+            "code": 400
+          }
+        }
+      }
+    ],
+    "err-score-nonlist": [
+      {
+        "status": 400,
+        "ms": 739,
+        "body": {
+          "error": {
+            "message": "[\n  {\n    \"expected\": \"string\",\n    \"code\": \"invalid_type\",\n    \"path\": [\n      \"model\"\n    ],\n    \"message\": \"Invalid input: expected string, received undefined\"\n  },\n  {\n    \"expected\": \"array\",\n    \"code\": \"invalid_type\",\n    \"path\": [\n      \"questions\",\n      \"q\",\n      \"criteria\"\n    ],\n    \"message\": \"Invalid input: expected array, received string\"\n  }\n]",
+            "code": 400
+          },
+          "user_id": "user_2tAVpO1BDEDLszyHi9RirhAWj3Y"
+        }
+      }
+    ]
+  },
+  "local": {
+    "docs-payouts": [
+      {
+        "status": 200,
+        "ms": 1279,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "is_urgent": {
+              "type": "noul",
+              "noul": 1.0
+            },
+            "department": {
+              "type": "choice",
+              "choice": "billing",
+              "probabilities": {
+                "billing": 0.9464,
+                "technical": 0.0534,
+                "sales": 0.0002
+              },
+              "confidence": 0.9196
+            },
+            "frustration": {
+              "type": "score",
+              "score": 1.0002,
+              "legend": {
+                "0": "Calm",
+                "1": "Frustrated",
+                "2": "Very angry"
+              },
+              "probabilities": {
+                "0": 0.0001,
+                "1": 0.9996,
+                "2": 0.0003
+              },
+              "confidence": 0.9994
+            }
+          },
+          "usage": {
+            "input_tokens": 58,
+            "output_tokens": 7
+          }
+        }
+      }
+    ],
+    "docs-ticket-paths": [
+      {
+        "status": 200,
+        "ms": 109,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "refund_requested": {
+              "type": "noul",
+              "noul": 0.9999
+            },
+            "policy_supports": {
+              "type": "noul",
+              "noul": 0.9999
+            },
+            "request_type": {
+              "type": "choice",
+              "choice": "refund",
+              "probabilities": {
+                "refund": 0.9999,
+                "rebooking": 0.0001,
+                "information": 0.0
+              },
+              "confidence": 0.9998
+            }
+          },
+          "usage": {
+            "input_tokens": 193,
+            "output_tokens": 5
+          }
+        }
+      }
+    ],
+    "docs-structured-instructions": [
+      {
+        "status": 200,
+        "ms": 85,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "same_person": {
+              "type": "noul",
+              "noul": 0.4073
+            }
+          },
+          "usage": {
+            "input_tokens": 93,
+            "output_tokens": 1
+          }
+        }
+      }
+    ],
+    "fan-refund": [
+      {
+        "status": 200,
+        "ms": 96,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "route": {
+              "type": "choice",
+              "choice": "billing",
+              "probabilities": {
+                "billing": 1.0,
+                "technical": 0.0,
+                "sales": 0.0
+              },
+              "confidence": 1.0
+            },
+            "urgent": {
+              "type": "noul",
+              "noul": 1.0
+            },
+            "polite": {
+              "type": "noul",
+              "noul": 0.0001
+            },
+            "level": {
+              "type": "score",
+              "score": 0.9781,
+              "legend": {
+                "0": "Calm, just stating facts",
+                "1": "Frustrated but civil",
+                "2": "Very angry, strong language"
+              },
+              "probabilities": {
+                "0": 0.0259,
+                "1": 0.9701,
+                "2": 0.004
+              },
+              "confidence": 0.9551
+            }
+          },
+          "usage": {
+            "input_tokens": 82,
+            "output_tokens": 8
+          }
+        }
+      }
+    ],
+    "fan-api500": [
+      {
+        "status": 200,
+        "ms": 104,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "route": {
+              "type": "choice",
+              "choice": "technical",
+              "probabilities": {
+                "billing": 0.0,
+                "technical": 1.0,
+                "sales": 0.0
+              },
+              "confidence": 1.0
+            },
+            "urgent": {
+              "type": "noul",
+              "noul": 0.6225
+            },
+            "polite": {
+              "type": "noul",
+              "noul": 0.0097
+            },
+            "level": {
+              "type": "score",
+              "score": 1.8518,
+              "legend": {
+                "0": "Cosmetic; no impact",
+                "1": "Degraded; workaround exists",
+                "2": "Blocking; no workaround"
+              },
+              "probabilities": {
+                "0": 0.0001,
+                "1": 0.148,
+                "2": 0.8519
+              },
+              "confidence": 0.7778
+            }
+          },
+          "usage": {
+            "input_tokens": 78,
+            "output_tokens": 8
+          }
+        }
+      }
+    ],
+    "fan-upgrade": [
+      {
+        "status": 200,
+        "ms": 93,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "route": {
+              "type": "choice",
+              "choice": "sales",
+              "probabilities": {
+                "billing": 0.0015,
+                "technical": 0.0,
+                "sales": 0.9985
+              },
+              "confidence": 0.9978
+            },
+            "urgent": {
+              "type": "noul",
+              "noul": 0.0
+            },
+            "polite": {
+              "type": "noul",
+              "noul": 0.9999
+            },
+            "level": {
+              "type": "score",
+              "score": 0.0025,
+              "legend": {
+                "0": "Calm, just stating facts",
+                "1": "Frustrated but civil",
+                "2": "Very angry, strong language"
+              },
+              "probabilities": {
+                "0": 0.9978,
+                "1": 0.0019,
+                "2": 0.0003
+              },
+              "confidence": 0.9967
+            }
+          },
+          "usage": {
+            "input_tokens": 79,
+            "output_tokens": 8
+          }
+        }
+      }
+    ],
+    "fan-login": [
+      {
+        "status": 200,
+        "ms": 95,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "route": {
+              "type": "choice",
+              "choice": "technical",
+              "probabilities": {
+                "billing": 0.0004,
+                "technical": 0.9993,
+                "sales": 0.0003
+              },
+              "confidence": 0.999
+            },
+            "urgent": {
+              "type": "noul",
+              "noul": 0.0534
+            },
+            "polite": {
+              "type": "noul",
+              "noul": 0.0203
+            },
+            "level": {
+              "type": "score",
+              "score": 0.9254,
+              "legend": {
+                "0": "Calm, just stating facts",
+                "1": "Frustrated but civil",
+                "2": "Very angry, strong language"
+              },
+              "probabilities": {
+                "0": 0.0758,
+                "1": 0.923,
+                "2": 0.0012
+              },
+              "confidence": 0.8845
+            }
+          },
+          "usage": {
+            "input_tokens": 80,
+            "output_tokens": 8
+          }
+        }
+      }
+    ],
+    "hard-sarcasm": [
+      {
+        "status": 200,
+        "ms": 95,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "tone": {
+              "type": "choice",
+              "choice": "angry",
+              "probabilities": {
+                "calm": 0.0,
+                "angry": 1.0,
+                "excited": 0.0
+              },
+              "confidence": 1.0
+            },
+            "frustration": {
+              "type": "score",
+              "score": 1.3484,
+              "legend": {
+                "0": "Calm, just stating facts",
+                "1": "Frustrated but civil",
+                "2": "Very angry, strong language"
+              },
+              "probabilities": {
+                "0": 0.0002,
+                "1": 0.6512,
+                "2": 0.3486
+              },
+              "confidence": 0.4768
+            }
+          },
+          "usage": {
+            "input_tokens": 64,
+            "output_tokens": 6
+          }
+        }
+      }
+    ],
+    "hard-negations": [
+      {
+        "status": 200,
+        "ms": 103,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "wants_refund": {
+              "type": "noul",
+              "noul": 0.9579
+            },
+            "refund_here": {
+              "type": "noul",
+              "noul": 0.3775
+            },
+            "urgent": {
+              "type": "noul",
+              "noul": 0.0001
+            }
+          },
+          "usage": {
+            "input_tokens": 99,
+            "output_tokens": 3
+          }
+        }
+      }
+    ],
+    "hard-nearmiss": [
+      {
+        "status": 200,
+        "ms": 53,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "kind": {
+              "type": "choice",
+              "choice": "feature_request",
+              "probabilities": {
+                "bug_report": 0.0,
+                "feature_request": 0.9999,
+                "question": 0.0001
+              },
+              "confidence": 0.9998
+            }
+          },
+          "usage": {
+            "input_tokens": 40,
+            "output_tokens": 3
+          }
+        }
+      }
+    ],
+    "hard-pii": [
+      {
+        "status": 200,
+        "ms": 101,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "a_has_pii": {
+              "type": "noul",
+              "noul": 0.9999
+            },
+            "b_has_pii": {
+              "type": "noul",
+              "noul": 0.0675
+            }
+          },
+          "usage": {
+            "input_tokens": 98,
+            "output_tokens": 2
+          }
+        }
+      }
+    ],
+    "edge-choice10": [
+      {
+        "status": 200,
+        "ms": 56,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "pick": {
+              "type": "choice",
+              "choice": "billing",
+              "probabilities": {
+                "dept_0": 0.0001,
+                "dept_1": 0.0,
+                "dept_2": 0.0041,
+                "dept_3": 0.0,
+                "dept_4": 0.0,
+                "dept_5": 0.0,
+                "dept_6": 0.0,
+                "dept_7": 0.0,
+                "dept_8": 0.0,
+                "dept_9": 0.0,
+                "billing": 0.9958
+              },
+              "confidence": 0.9954
+            }
+          },
+          "usage": {
+            "input_tokens": 60,
+            "output_tokens": 11
+          }
+        }
+      }
+    ],
+    "edge-choice26": [
+      {
+        "status": 200,
+        "ms": 71,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "pick": {
+              "type": "choice",
+              "choice": "press_release",
+              "probabilities": {
+                "type_0": 0.0001,
+                "type_1": 0.0,
+                "type_2": 0.0001,
+                "type_3": 0.0,
+                "type_4": 0.0,
+                "type_5": 0.0,
+                "type_6": 0.0,
+                "type_7": 0.0,
+                "type_8": 0.0,
+                "type_9": 0.0,
+                "type_10": 0.0,
+                "type_11": 0.0,
+                "type_12": 0.0,
+                "type_13": 0.0,
+                "type_14": 0.0,
+                "type_15": 0.0,
+                "type_16": 0.0,
+                "type_17": 0.0,
+                "type_18": 0.0,
+                "type_19": 0.0,
+                "type_20": 0.0,
+                "type_21": 0.0,
+                "type_22": 0.0,
+                "type_23": 0.0,
+                "type_24": 0.0,
+                "press_release": 0.9998
+              },
+              "confidence": 0.9998
+            }
+          },
+          "usage": {
+            "input_tokens": 136,
+            "output_tokens": 26
+          }
+        }
+      }
+    ],
+    "edge-choice100": [
+      {
+        "status": 200,
+        "ms": 754,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "pick": {
+              "type": "choice",
+              "choice": "refund_request",
+              "probabilities": {
+                "intent_0": 0.0003,
+                "intent_1": 0.0001,
+                "intent_2": 0.0007,
+                "intent_3": 0.0005,
+                "intent_4": 0.0006,
+                "intent_5": 0.0007,
+                "intent_6": 0.0007,
+                "intent_7": 0.0007,
+                "intent_8": 0.0007,
+                "intent_9": 0.0007,
+                "intent_10": 0.0005,
+                "intent_11": 0.0007,
+                "intent_12": 0.0006,
+                "intent_13": 0.0007,
+                "intent_14": 0.0007,
+                "intent_15": 0.0008,
+                "intent_16": 0.0006,
+                "intent_17": 0.0007,
+                "intent_18": 0.0008,
+                "intent_19": 0.0007,
+                "intent_20": 0.0008,
+                "intent_21": 0.0012,
+                "intent_22": 0.0008,
+                "intent_23": 0.0007,
+                "intent_24": 0.001,
+                "intent_25": 0.0007,
+                "intent_26": 0.0011,
+                "intent_27": 0.001,
+                "intent_28": 0.0012,
+                "intent_29": 0.001,
+                "intent_30": 0.0005,
+                "intent_31": 0.0007,
+                "intent_32": 0.0005,
+                "intent_33": 0.0005,
+                "intent_34": 0.0005,
+                "intent_35": 0.0004,
+                "intent_36": 0.0006,
+                "intent_37": 0.0006,
+                "intent_38": 0.0007,
+                "intent_39": 0.0006,
+                "intent_40": 0.0007,
+                "intent_41": 0.0008,
+                "intent_42": 0.0006,
+                "intent_43": 0.0007,
+                "intent_44": 0.0007,
+                "intent_45": 0.0006,
+                "intent_46": 0.0007,
+                "intent_47": 0.0007,
+                "intent_48": 0.0007,
+                "intent_49": 0.0007,
+                "intent_50": 0.0007,
+                "intent_51": 0.0011,
+                "intent_52": 0.001,
+                "intent_53": 0.0008,
+                "intent_54": 0.0008,
+                "intent_55": 0.0007,
+                "intent_56": 0.0007,
+                "intent_57": 0.0008,
+                "intent_58": 0.0008,
+                "intent_59": 0.0008,
+                "intent_60": 0.0007,
+                "intent_61": 0.001,
+                "intent_62": 0.0008,
+                "intent_63": 0.0008,
+                "intent_64": 0.0005,
+                "intent_65": 0.0008,
+                "intent_66": 0.0006,
+                "intent_67": 0.0006,
+                "intent_68": 0.0007,
+                "intent_69": 0.0007,
+                "intent_70": 0.0007,
+                "intent_71": 0.0007,
+                "intent_72": 0.0007,
+                "intent_73": 0.0007,
+                "intent_74": 0.0007,
+                "intent_75": 0.0007,
+                "intent_76": 0.0007,
+                "intent_77": 0.0008,
+                "intent_78": 0.0007,
+                "intent_79": 0.0007,
+                "intent_80": 0.0008,
+                "intent_81": 0.001,
+                "intent_82": 0.0008,
+                "intent_83": 0.0008,
+                "intent_84": 0.0007,
+                "intent_85": 0.0007,
+                "intent_86": 0.0007,
+                "intent_87": 0.0007,
+                "intent_88": 0.0007,
+                "intent_89": 0.0007,
+                "intent_90": 0.0007,
+                "intent_91": 0.0008,
+                "intent_92": 0.0008,
+                "intent_93": 0.0007,
+                "intent_94": 0.0007,
+                "intent_95": 0.0007,
+                "intent_96": 0.0007,
+                "intent_97": 0.0007,
+                "intent_98": 0.0007,
+                "refund_request": 0.9289
+              },
+              "confidence": 0.9282
+            }
+          },
+          "usage": {
+            "input_tokens": 710,
+            "output_tokens": 100
+          }
+        }
+      }
+    ],
+    "edge-score2": [
+      {
+        "status": 200,
+        "ms": 53,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "slow": {
+              "type": "score",
+              "score": 0.0331,
+              "legend": {
+                "0": "Noticeable",
+                "1": "Painful"
+              },
+              "probabilities": {
+                "0": 0.9669,
+                "1": 0.0331
+              },
+              "confidence": 0.9338
+            }
+          },
+          "usage": {
+            "input_tokens": 23,
+            "output_tokens": 2
+          }
+        }
+      }
+    ],
+    "edge-score10": [
+      {
+        "status": 200,
+        "ms": 57,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "sev": {
+              "type": "score",
+              "score": 6.2954,
+              "legend": {
+                "0": "Severity level 0",
+                "1": "Severity level 1",
+                "2": "Severity level 2",
+                "3": "Severity level 3",
+                "4": "Severity level 4",
+                "5": "Severity level 5",
+                "6": "Severity level 6",
+                "7": "Severity level 7",
+                "8": "Severity level 8",
+                "9": "Severity level 9"
+              },
+              "probabilities": {
+                "0": 0.0001,
+                "1": 0.0006,
+                "2": 0.0016,
+                "3": 0.0011,
+                "4": 0.0319,
+                "5": 0.3891,
+                "6": 0.3031,
+                "7": 0.0194,
+                "8": 0.0171,
+                "9": 0.236
+              },
+              "confidence": 0.3212
+            }
+          },
+          "usage": {
+            "input_tokens": 62,
+            "output_tokens": 10
+          }
+        }
+      }
+    ],
+    "edge-no-instructions": [
+      {
+        "status": 200,
+        "ms": 52,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "is_billing": {
+              "type": "noul",
+              "noul": 0.9975
+            }
+          },
+          "usage": {
+            "input_tokens": 17,
+            "output_tokens": 1
+          }
+        }
+      }
+    ],
+    "edge-null-desc": [
+      {
+        "status": 200,
+        "ms": 48,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "intent": {
+              "type": "choice",
+              "choice": "question",
+              "probabilities": {
+                "question": 0.9997,
+                "complaint": 0.0002,
+                "other": 0.0001
+              },
+              "confidence": 0.9996
+            }
+          },
+          "usage": {
+            "input_tokens": 17,
+            "output_tokens": 3
+          }
+        }
+      }
+    ],
+    "i18n-mixed": [
+      {
+        "status": 200,
+        "ms": 99,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "a_refund": {
+              "type": "noul",
+              "noul": 0.9999
+            },
+            "b_refund": {
+              "type": "noul",
+              "noul": 0.9579
+            },
+            "a_urgent": {
+              "type": "noul",
+              "noul": 0.9948
+            }
+          },
+          "usage": {
+            "input_tokens": 81,
+            "output_tokens": 3
+          }
+        }
+      }
+    ],
+    "long-policy": [
+      {
+        "status": 200,
+        "ms": 650,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "esc": {
+              "type": "noul",
+              "noul": 0.9999
+            },
+            "refund_window": {
+              "type": "noul",
+              "noul": 0.9992
+            },
+            "section_count": {
+              "type": "score",
+              "score": 1.9933,
+              "legend": {
+                "0": "A short note",
+                "1": "A moderate policy",
+                "2": "An exhaustive manual"
+              },
+              "probabilities": {
+                "0": 0.0,
+                "1": 0.0067,
+                "2": 0.9933
+              },
+              "confidence": 0.9899
+            }
+          },
+          "usage": {
+            "input_tokens": 2090,
+            "output_tokens": 5
+          }
+        }
+      }
+    ],
+    "dup-refund": [
+      {
+        "status": 200,
+        "ms": 53,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "route": {
+              "type": "choice",
+              "choice": "billing",
+              "probabilities": {
+                "billing": 1.0,
+                "technical": 0.0,
+                "sales": 0.0
+              },
+              "confidence": 1.0
+            },
+            "urgent": {
+              "type": "noul",
+              "noul": 1.0
+            }
+          },
+          "usage": {
+            "input_tokens": 50,
+            "output_tokens": 4
+          }
+        }
+      },
+      {
+        "status": 200,
+        "ms": 49,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "route": {
+              "type": "choice",
+              "choice": "billing",
+              "probabilities": {
+                "billing": 1.0,
+                "technical": 0.0,
+                "sales": 0.0
+              },
+              "confidence": 1.0
+            },
+            "urgent": {
+              "type": "noul",
+              "noul": 1.0
+            }
+          },
+          "usage": {
+            "input_tokens": 50,
+            "output_tokens": 4
+          }
+        }
+      }
+    ],
+    "dup-sarcasm": [
+      {
+        "status": 200,
+        "ms": 51,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "tone": {
+              "type": "choice",
+              "choice": "angry",
+              "probabilities": {
+                "calm": 0.0,
+                "angry": 1.0,
+                "excited": 0.0
+              },
+              "confidence": 1.0
+            }
+          },
+          "usage": {
+            "input_tokens": 40,
+            "output_tokens": 3
+          }
+        }
+      },
+      {
+        "status": 200,
+        "ms": 50,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "tone": {
+              "type": "choice",
+              "choice": "angry",
+              "probabilities": {
+                "calm": 0.0,
+                "angry": 1.0,
+                "excited": 0.0
+              },
+              "confidence": 1.0
+            }
+          },
+          "usage": {
+            "input_tokens": 40,
+            "output_tokens": 3
+          }
+        }
+      }
+    ],
+    "inv-2q": [
+      {
+        "status": 200,
+        "ms": 52,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "intent": {
+              "type": "choice",
+              "choice": "refund",
+              "probabilities": {
+                "refund": 1.0,
+                "rebooking": 0.0,
+                "information": 0.0
+              },
+              "confidence": 1.0
+            }
+          },
+          "usage": {
+            "input_tokens": 34,
+            "output_tokens": 3
+          }
+        }
+      }
+    ],
+    "inv-10q": [
+      {
+        "status": 200,
+        "ms": 114,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "intent": {
+              "type": "choice",
+              "choice": "refund",
+              "probabilities": {
+                "refund": 1.0,
+                "rebooking": 0.0,
+                "information": 0.0
+              },
+              "confidence": 1.0
+            },
+            "angry": {
+              "type": "noul",
+              "noul": 1.0
+            },
+            "urgent": {
+              "type": "noul",
+              "noul": 0.0097
+            },
+            "mentions_product": {
+              "type": "noul",
+              "noul": 1.0
+            },
+            "threat_churn": {
+              "type": "noul",
+              "noul": 0.9627
+            },
+            "frustration": {
+              "type": "score",
+              "score": 1.148,
+              "legend": {
+                "0": "Calm, just stating facts",
+                "1": "Frustrated but civil",
+                "2": "Very angry, strong language"
+              },
+              "probabilities": {
+                "0": 0.0,
+                "1": 0.852,
+                "2": 0.148
+              },
+              "confidence": 0.778
+            },
+            "severity": {
+              "type": "score",
+              "score": 1.9983,
+              "legend": {
+                "0": "Cosmetic; no impact",
+                "1": "Degraded; workaround exists",
+                "2": "Blocking; no workaround"
+              },
+              "probabilities": {
+                "0": 0.0,
+                "1": 0.0017,
+                "2": 0.9983
+              },
+              "confidence": 0.9974
+            },
+            "channel": {
+              "type": "choice",
+              "choice": "review",
+              "probabilities": {
+                "email": 0.015,
+                "chat": 0.0592,
+                "review": 0.9258
+              },
+              "confidence": 0.8887
+            },
+            "policy_risk": {
+              "type": "noul",
+              "noul": 0.9841
+            }
+          },
+          "usage": {
+            "input_tokens": 126,
+            "output_tokens": 17
+          }
+        }
+      }
+    ],
+    "battery-00": [
+      {
+        "status": 200,
+        "ms": 52,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "q00": {
+              "type": "noul",
+              "noul": 0.9999
+            }
+          },
+          "usage": {
+            "input_tokens": 21,
+            "output_tokens": 1
+          }
+        }
+      }
+    ],
+    "battery-01": [
+      {
+        "status": 200,
+        "ms": 49,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "q01": {
+              "type": "noul",
+              "noul": 0.0
+            }
+          },
+          "usage": {
+            "input_tokens": 18,
+            "output_tokens": 1
+          }
+        }
+      }
+    ],
+    "battery-02": [
+      {
+        "status": 200,
+        "ms": 51,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "q02": {
+              "type": "noul",
+              "noul": 1.0
+            }
+          },
+          "usage": {
+            "input_tokens": 26,
+            "output_tokens": 1
+          }
+        }
+      }
+    ],
+    "battery-03": [
+      {
+        "status": 200,
+        "ms": 49,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "q03": {
+              "type": "noul",
+              "noul": 0.0
+            }
+          },
+          "usage": {
+            "input_tokens": 19,
+            "output_tokens": 1
+          }
+        }
+      }
+    ],
+    "battery-04": [
+      {
+        "status": 200,
+        "ms": 51,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "q04": {
+              "type": "noul",
+              "noul": 0.9999
+            }
+          },
+          "usage": {
+            "input_tokens": 49,
+            "output_tokens": 1
+          }
+        }
+      }
+    ],
+    "battery-05": [
+      {
+        "status": 200,
+        "ms": 48,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "q05": {
+              "type": "noul",
+              "noul": 0.0
+            }
+          },
+          "usage": {
+            "input_tokens": 17,
+            "output_tokens": 1
+          }
+        }
+      }
+    ],
+    "battery-06": [
+      {
+        "status": 200,
+        "ms": 51,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "q06": {
+              "type": "noul",
+              "noul": 0.9999
+            }
+          },
+          "usage": {
+            "input_tokens": 29,
+            "output_tokens": 1
+          }
+        }
+      }
+    ],
+    "battery-07": [
+      {
+        "status": 200,
+        "ms": 51,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "q07": {
+              "type": "noul",
+              "noul": 0.0601
+            }
+          },
+          "usage": {
+            "input_tokens": 21,
+            "output_tokens": 1
+          }
+        }
+      }
+    ],
+    "battery-08": [
+      {
+        "status": 200,
+        "ms": 50,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "q08": {
+              "type": "noul",
+              "noul": 1.0
+            }
+          },
+          "usage": {
+            "input_tokens": 24,
+            "output_tokens": 1
+          }
+        }
+      }
+    ],
+    "battery-09": [
+      {
+        "status": 200,
+        "ms": 50,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "q09": {
+              "type": "noul",
+              "noul": 0.0
+            }
+          },
+          "usage": {
+            "input_tokens": 16,
+            "output_tokens": 1
+          }
+        }
+      }
+    ],
+    "battery-10": [
+      {
+        "status": 200,
+        "ms": 52,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "q10": {
+              "type": "noul",
+              "noul": 0.0
+            }
+          },
+          "usage": {
+            "input_tokens": 23,
+            "output_tokens": 1
+          }
+        }
+      }
+    ],
+    "battery-11": [
+      {
+        "status": 200,
+        "ms": 50,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "q11": {
+              "type": "noul",
+              "noul": 0.9526
+            }
+          },
+          "usage": {
+            "input_tokens": 24,
+            "output_tokens": 1
+          }
+        }
+      }
+    ],
+    "battery-12": [
+      {
+        "status": 200,
+        "ms": 49,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "q12": {
+              "type": "noul",
+              "noul": 1.0
+            }
+          },
+          "usage": {
+            "input_tokens": 24,
+            "output_tokens": 1
+          }
+        }
+      }
+    ],
+    "battery-13": [
+      {
+        "status": 200,
+        "ms": 52,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "q13": {
+              "type": "noul",
+              "noul": 0.0
+            }
+          },
+          "usage": {
+            "input_tokens": 23,
+            "output_tokens": 1
+          }
+        }
+      }
+    ],
+    "battery-14": [
+      {
+        "status": 200,
+        "ms": 52,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "q14": {
+              "type": "noul",
+              "noul": 0.9933
+            }
+          },
+          "usage": {
+            "input_tokens": 23,
+            "output_tokens": 1
+          }
+        }
+      }
+    ],
+    "battery-15": [
+      {
+        "status": 200,
+        "ms": 51,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "q15": {
+              "type": "noul",
+              "noul": 0.0001
+            }
+          },
+          "usage": {
+            "input_tokens": 19,
+            "output_tokens": 1
+          }
+        }
+      }
+    ],
+    "battery-16": [
+      {
+        "status": 200,
+        "ms": 51,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "q16": {
+              "type": "noul",
+              "noul": 0.9999
+            }
+          },
+          "usage": {
+            "input_tokens": 21,
+            "output_tokens": 1
+          }
+        }
+      }
+    ],
+    "battery-17": [
+      {
+        "status": 200,
+        "ms": 50,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "q17": {
+              "type": "noul",
+              "noul": 0.0
+            }
+          },
+          "usage": {
+            "input_tokens": 23,
+            "output_tokens": 1
+          }
+        }
+      }
+    ],
+    "battery-18": [
+      {
+        "status": 200,
+        "ms": 51,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "q18": {
+              "type": "noul",
+              "noul": 1.0
+            }
+          },
+          "usage": {
+            "input_tokens": 26,
+            "output_tokens": 1
+          }
+        }
+      }
+    ],
+    "battery-19": [
+      {
+        "status": 200,
+        "ms": 49,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "q19": {
+              "type": "noul",
+              "noul": 0.977
+            }
+          },
+          "usage": {
+            "input_tokens": 38,
+            "output_tokens": 1
+          }
+        }
+      }
+    ],
+    "battery-20": [
+      {
+        "status": 200,
+        "ms": 50,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "q20": {
+              "type": "noul",
+              "noul": 0.0
+            }
+          },
+          "usage": {
+            "input_tokens": 35,
+            "output_tokens": 1
+          }
+        }
+      }
+    ],
+    "battery-21": [
+      {
+        "status": 200,
+        "ms": 50,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "q21": {
+              "type": "noul",
+              "noul": 0.0
+            }
+          },
+          "usage": {
+            "input_tokens": 24,
+            "output_tokens": 1
+          }
+        }
+      }
+    ],
+    "battery-22": [
+      {
+        "status": 200,
+        "ms": 52,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "q22": {
+              "type": "noul",
+              "noul": 0.0601
+            }
+          },
+          "usage": {
+            "input_tokens": 31,
+            "output_tokens": 1
+          }
+        }
+      }
+    ],
+    "battery-23": [
+      {
+        "status": 200,
+        "ms": 51,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "q23": {
+              "type": "noul",
+              "noul": 1.0
+            }
+          },
+          "usage": {
+            "input_tokens": 35,
+            "output_tokens": 1
+          }
+        }
+      }
+    ],
+    "battery-24": [
+      {
+        "status": 200,
+        "ms": 51,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "q24": {
+              "type": "choice",
+              "choice": "billing",
+              "probabilities": {
+                "billing": 0.9991,
+                "technical": 0.0008,
+                "sales": 0.0001
+              },
+              "confidence": 0.9987
+            }
+          },
+          "usage": {
+            "input_tokens": 39,
+            "output_tokens": 3
+          }
+        }
+      }
+    ],
+    "battery-25": [
+      {
+        "status": 200,
+        "ms": 50,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "q25": {
+              "type": "choice",
+              "choice": "technical",
+              "probabilities": {
+                "billing": 0.0,
+                "technical": 1.0,
+                "sales": 0.0
+              },
+              "confidence": 1.0
+            }
+          },
+          "usage": {
+            "input_tokens": 43,
+            "output_tokens": 3
+          }
+        }
+      }
+    ],
+    "battery-26": [
+      {
+        "status": 200,
+        "ms": 51,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "q26": {
+              "type": "choice",
+              "choice": "sales",
+              "probabilities": {
+                "billing": 0.0013,
+                "technical": 0.0,
+                "sales": 0.9987
+              },
+              "confidence": 0.9981
+            }
+          },
+          "usage": {
+            "input_tokens": 42,
+            "output_tokens": 3
+          }
+        }
+      }
+    ],
+    "battery-27": [
+      {
+        "status": 200,
+        "ms": 50,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "q27": {
+              "type": "choice",
+              "choice": "french",
+              "probabilities": {
+                "english": 0.0,
+                "french": 1.0,
+                "german": 0.0,
+                "spanish": 0.0
+              },
+              "confidence": 1.0
+            }
+          },
+          "usage": {
+            "input_tokens": 39,
+            "output_tokens": 4
+          }
+        }
+      }
+    ],
+    "battery-28": [
+      {
+        "status": 200,
+        "ms": 51,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "q28": {
+              "type": "choice",
+              "choice": "german",
+              "probabilities": {
+                "english": 0.0,
+                "french": 0.0,
+                "german": 1.0,
+                "spanish": 0.0
+              },
+              "confidence": 1.0
+            }
+          },
+          "usage": {
+            "input_tokens": 39,
+            "output_tokens": 4
+          }
+        }
+      }
+    ],
+    "battery-29": [
+      {
+        "status": 200,
+        "ms": 51,
+        "body": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "q29": {
+              "type": "choice",
+              "choice": "english",
+              "probabilities": {
+                "english": 1.0,
+                "french": 0.0,
+                "german": 0.0,
+                "spanish": 0.0
+              },
+              "confidence": 1.0
+            }
+          },
+          "usage": {
+            "input_tokens": 40,
+            "output_tokens": 4
+          }
+        }
+      }
+    ],
+    "err-missing-state": [
+      {
+        "status": 422,
+        "ms": 2,
+        "body": {
+          "detail": [
+            {
+              "loc": [
+                "body",
+                "state"
+              ],
+              "msg": "Field required",
+              "type": "missing"
+            }
+          ]
+        }
+      }
+    ],
+    "err-state-type": [
+      {
+        "status": 422,
+        "ms": 1,
+        "body": {
+          "detail": [
+            {
+              "loc": [
+                "body",
+                "state"
+              ],
+              "msg": "'state' must be a string, object, or array.",
+              "type": "value_error"
+            }
+          ]
+        }
+      }
+    ],
+    "err-empty-questions": [
+      {
+        "status": 422,
+        "ms": 1,
+        "body": {
+          "detail": [
+            {
+              "loc": [
+                "body",
+                "questions"
+              ],
+              "msg": "'questions' must be a non-empty map of question id to question.",
+              "type": "value_error"
+            }
+          ]
+        }
+      }
+    ],
+    "err-bad-type": [
+      {
+        "status": 422,
+        "ms": 1,
+        "body": {
+          "detail": [
+            {
+              "loc": [
+                "body",
+                "questions",
+                "q",
+                "type"
+              ],
+              "msg": "Question 'type' must be one of 'noul', 'choice', 'score'.",
+              "type": "value_error"
+            }
+          ]
+        }
+      }
+    ],
+    "err-choice-300": [
+      {
+        "status": 422,
+        "ms": 1,
+        "body": {
+          "detail": [
+            {
+              "loc": [
+                "body",
+                "questions",
+                "q",
+                "criteria"
+              ],
+              "msg": "Choice supports at most 255 options; got 300.",
+              "type": "value_error"
+            }
+          ]
+        }
+      }
+    ],
+    "err-noul-bad-key": [
+      {
+        "status": 422,
+        "ms": 1,
+        "body": {
+          "detail": [
+            {
+              "loc": [
+                "body",
+                "questions",
+                "q",
+                "criteria"
+              ],
+              "msg": "Unknown noul criteria key 'maybe'; expected 'true' or 'false'.",
+              "type": "value_error"
+            }
+          ]
+        }
+      }
+    ],
+    "err-unknown-model": [
+      {
+        "status": 422,
+        "ms": 1,
+        "body": {
+          "detail": [
+            {
+              "loc": [
+                "body",
+                "model"
+              ],
+              "msg": "Unknown model 'gpt-4o'. Use 'jevlike-latest' or an id from GET /v1/models.",
+              "type": "value_error"
+            }
+          ]
+        }
+      }
+    ],
+    "err-score-nonlist": [
+      {
+        "status": 422,
+        "ms": 1,
+        "body": {
+          "detail": [
+            {
+              "loc": [
+                "body",
+                "questions",
+                "q",
+                "criteria"
+              ],
+              "msg": "Score 'criteria' must be an ordered array of 1 to 26 level descriptions.",
+              "type": "value_error"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "metrics": {
+    "choice": {
+      "n": 23,
+      "top1_agreement": 1.0,
+      "js_divergence": 0.0025,
+      "l1_distance": 0.0176,
+      "top1_prob_gap": 0.0088,
+      "kendall_tau": 0.5583
+    },
+    "noul": {
+      "n": 52,
+      "prob_mae": 0.1295,
+      "max_delta": 0.8797,
+      "decision_agreement": 0.8846
+    },
+    "score": {
+      "n": 11,
+      "score_mae": 0.4149,
+      "max_delta": 2.4346000000000005,
+      "modal_level_agreement": 0.7273,
+      "js_divergence": 0.1441
+    },
+    "confidence": {
+      "n": 34,
+      "gap_mae": 0.0862,
+      "pearson_r": 0.3766
+    },
+    "usage_input_ratio_local_over_official": {
+      "n": 53,
+      "mean": 0.143,
+      "min": 0.056291390728476824,
+      "max": 0.8650662251655629
+    },
+    "self_consistency": {
+      "official": {
+        "questions": 3,
+        "top1_flips": 0,
+        "mean_drift": 0.0
+      },
+      "local": {
+        "questions": 3,
+        "top1_flips": 0,
+        "mean_drift": 0.0
+      }
+    },
+    "question_count_invariance": {
+      "invariance": {
+        "official": {
+          "mean_drift": 0,
+          "samples": 1
+        },
+        "local": {
+          "mean_drift": 0,
+          "samples": 1
+        }
+      }
+    },
+    "disagreements": [
+      {
+        "id": "edge-no-instructions",
+        "reason": "status off=400 loc=200"
+      }
+    ]
+  },
+  "invalid": [
+    {
+      "id": "err-missing-state",
+      "official_status": 400,
+      "local_status": 422,
+      "status_match": false,
+      "official_loc": null,
+      "local_loc": "state",
+      "loc_match": false
+    },
+    {
+      "id": "err-state-type",
+      "official_status": 400,
+      "local_status": 422,
+      "status_match": false,
+      "official_loc": null,
+      "local_loc": "state",
+      "loc_match": false
+    },
+    {
+      "id": "err-empty-questions",
+      "official_status": 400,
+      "local_status": 422,
+      "status_match": false,
+      "official_loc": null,
+      "local_loc": "questions",
+      "loc_match": false
+    },
+    {
+      "id": "err-bad-type",
+      "official_status": 400,
+      "local_status": 422,
+      "status_match": false,
+      "official_loc": null,
+      "local_loc": "questions/q/type",
+      "loc_match": false
+    },
+    {
+      "id": "err-choice-300",
+      "official_status": 400,
+      "local_status": 422,
+      "status_match": false,
+      "official_loc": null,
+      "local_loc": "questions/q/criteria",
+      "loc_match": false
+    },
+    {
+      "id": "err-noul-bad-key",
+      "official_status": 400,
+      "local_status": 422,
+      "status_match": false,
+      "official_loc": null,
+      "local_loc": "questions/q/criteria",
+      "loc_match": false
+    },
+    {
+      "id": "err-unknown-model",
+      "official_status": 400,
+      "local_status": 422,
+      "status_match": false,
+      "official_loc": null,
+      "local_loc": "model",
+      "loc_match": false
+    },
+    {
+      "id": "err-score-nonlist",
+      "official_status": 400,
+      "local_status": 422,
+      "status_match": false,
+      "official_loc": null,
+      "local_loc": "questions/q/criteria",
+      "loc_match": false
+    }
+  ]
+}

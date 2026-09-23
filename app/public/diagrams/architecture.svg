@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8"/>
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#3b82f6"/>
+    </marker>
+  </defs>
+
+  <!-- Application box -->
+  <rect x="20" y="170" width="220" height="180" rx="16" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+  <text x="130" y="205" text-anchor="middle" font-weight="600" font-size="16" fill="#1e40af">Your Application</text>
+  <text x="130" y="260" text-anchor="middle" font-size="14" fill="#334155">Business Logic</text>
+  <text x="130" y="282" text-anchor="middle" font-size="13" fill="#64748b">routing · if/else</text>
+  <text x="130" y="302" text-anchor="middle" font-size="13" fill="#64748b">escalation</text>
+
+  <!-- Arrow: App -> Decidex -->
+  <line x1="240" y1="240" x2="330" y2="240" stroke="#3b82f6" stroke-width="2.5" marker-end="url(#arrow-blue)"/>
+  <text x="285" y="228" text-anchor="middle" font-size="11" fill="#3b82f6">state + questions</text>
+
+  <!-- Decidex Service box -->
+  <rect x="340" y="100" width="290" height="330" rx="16" fill="#f5f3ff" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="485" y="135" text-anchor="middle" font-weight="600" font-size="16" fill="#6d28d9">Decidex Service</text>
+
+  <rect x="365" y="155" width="240" height="44" rx="10" fill="#ede9fe" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="485" y="182" text-anchor="middle" font-size="14" fill="#5b21b6">POST /v1/systemone</text>
+
+  <rect x="365" y="220" width="240" height="44" rx="10" fill="#ede9fe" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="485" y="247" text-anchor="middle" font-size="14" fill="#5b21b6">Contract Validation</text>
+
+  <rect x="365" y="285" width="240" height="44" rx="10" fill="#ede9fe" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="485" y="312" text-anchor="middle" font-size="14" fill="#5b21b6">Parallel Evaluation</text>
+
+  <rect x="365" y="350" width="240" height="44" rx="10" fill="#ede9fe" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="485" y="377" text-anchor="middle" font-size="14" fill="#5b21b6">Answer Assembler</text>
+
+  <!-- Internal arrows in Decidex -->
+  <line x1="485" y1="199" x2="485" y2="216" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="485" y1="264" x2="485" y2="281" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="485" y1="329" x2="485" y2="346" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Arrow: Decidex -> Engine -->
+  <line x1="630" y1="307" x2="700" y2="307" stroke="#16a34a" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="665" y="295" text-anchor="middle" font-size="11" fill="#16a34a">letter readout</text>
+
+  <!-- Engine box -->
+  <rect x="710" y="170" width="230" height="280" rx="16" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="825" y="205" text-anchor="middle" font-weight="600" font-size="16" fill="#166534">LLM Engine</text>
+  <rect x="730" y="225" width="190" height="72" rx="10" fill="#f0fdf4" stroke="#4ade80" stroke-width="1.5"/>
+  <text x="825" y="254" text-anchor="middle" font-size="14" fill="#166534">Qwen3-8B</text>
+  <text x="825" y="278" text-anchor="middle" font-size="12" fill="#4ade80">+ core-8b adapter</text>
+  <rect x="730" y="320" width="190" height="72" rx="10" fill="#fffbeb" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="825" y="349" text-anchor="middle" font-size="14" fill="#92400e">KV Prefix Cache</text>
+  <text x="825" y="372" text-anchor="middle" font-size="12" fill="#f59e0b">LRU · 4GB budget</text>
+
+  <!-- Arrow: Decidex -> App (response) -->
+  <line x1="240" y1="290" x2="240" y2="290" stroke="#3b82f6" stroke-width="2.5" marker-end="url(#arrow-blue)"/>
+  <path d="M 340 390 C 290 430, 180 430, 130 354" stroke="#3b82f6" stroke-width="2" fill="none" marker-end="url(#arrow-blue)" stroke-dasharray="8,4"/>
+  <text x="230" y="440" text-anchor="middle" font-size="11" fill="#3b82f6">typed answers + probabilities</text>
+
+  <!-- Dashed arrow: Cache -> Engine (prefix reuse) -->
+  <line x1="825" y1="320" x2="825" y2="302" stroke="#f59e0b" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrow)"/>
+</svg>

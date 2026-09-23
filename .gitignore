@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Test / tooling caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Editors / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Local artifacts
+*.log
+audit-response.json
+.env
+gguf/
+
+# LoRA adapters ship on HuggingFace (see scripts/fetch_models.py); too big for git
+benchmarks/lora_adapter*
+benchmarks/adapters/**/*.safetensors
+benchmarks/adapters/**/*.bin
+hf-release/**/adapter/
+hf-release/**/*.gguf
+hf-release/decidex-distill-data/
+benchmarks/adapters/*/README.md
+app/node_modules/
+app/dist/

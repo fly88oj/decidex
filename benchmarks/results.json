@@ -1,0 +1,140 @@
+[
+  {
+    "tag": "baseline",
+    "model": "Qwen/Qwen3-4B",
+    "temperature": 1.0,
+    "load_seconds": 39.0,
+    "accuracy": {
+      "items": 40,
+      "eval_seconds": 2.97,
+      "noul": {
+        "n": 18,
+        "accuracy": 1,
+        "brier": 0.0003
+      },
+      "choice": {
+        "n": 12,
+        "accuracy": 1,
+        "avg_top_prob": 0.9998,
+        "gap": -0.0002
+      },
+      "score": {
+        "n": 10,
+        "accuracy": 0.8,
+        "mae": 0.1858
+      },
+      "overall_accuracy": 0.95
+    },
+    "latency": {
+      "single_ms_p50": 52.8,
+      "single_ms_p95": 59.2,
+      "fanout10_ms_median": 150.6,
+      "fanout10_ms_min": 146.3
+    }
+  },
+  {
+    "tag": "p1-prefix-reuse",
+    "model": "Qwen/Qwen3-4B",
+    "temperature": 1.0,
+    "load_seconds": 33.9,
+    "accuracy": {
+      "items": 40,
+      "eval_seconds": 2.74,
+      "noul": {
+        "n": 18,
+        "accuracy": 1,
+        "brier": 0.0003
+      },
+      "choice": {
+        "n": 12,
+        "accuracy": 1,
+        "avg_top_prob": 0.9998,
+        "gap": -0.0002
+      },
+      "score": {
+        "n": 10,
+        "accuracy": 0.8,
+        "mae": 0.1858
+      },
+      "overall_accuracy": 0.95
+    },
+    "latency": {
+      "single_ms_p50": 47.6,
+      "single_ms_p95": 52.0,
+      "fanout10_ms_median": 153.1,
+      "fanout10_ms_min": 151.5
+    }
+  },
+  {
+    "tag": "a4-instruct2507",
+    "model": "Qwen/Qwen3-4B-Instruct-2507",
+    "temperature": 1.0,
+    "load_seconds": 37.1,
+    "accuracy": {
+      "items": 53,
+      "eval_seconds": 3.42,
+      "noul": {
+        "n": 24,
+        "accuracy": 1,
+        "brier": 0.0
+      },
+      "choice": {
+        "n": 16,
+        "accuracy": 0.9375,
+        "avg_top_prob": 1.0,
+        "gap": 0.0625
+      },
+      "score": {
+        "n": 13,
+        "accuracy": 0.8462,
+        "mae": 0.1534
+      },
+      "overall_accuracy": 0.9434
+    },
+    "latency": {
+      "single_ms_p50": 48.4,
+      "single_ms_p95": 53.7,
+      "fanout10_ms_median": 65.7,
+      "fanout10_ms_min": 63.7,
+      "longstate_fanout10_ms_median": 148.6,
+      "longstate_fanout10_ms_min": 147.7,
+      "longstate_tokens": 3301
+    }
+  },
+  {
+    "tag": "p2-optimized",
+    "model": "Qwen/Qwen3-4B",
+    "temperature": 1.0,
+    "load_seconds": 33.6,
+    "accuracy": {
+      "items": 53,
+      "eval_seconds": 3.5,
+      "noul": {
+        "n": 24,
+        "accuracy": 1,
+        "brier": 0.0004
+      },
+      "choice": {
+        "n": 16,
+        "accuracy": 0.9375,
+        "avg_top_prob": 0.9997,
+        "gap": 0.0622
+      },
+      "score": {
+        "n": 13,
+        "accuracy": 0.8462,
+        "mae": 0.1461
+      },
+      "overall_accuracy": 0.9434
+    },
+    "latency": {
+      "single_ms_p50": 49.1,
+      "single_ms_p95": 52.2,
+      "fanout10_ms_median": 65.9,
+      "fanout10_ms_min": 64.3,
+      "longstate_fanout10_ms_median": 148.2,
+      "longstate_fanout10_ms_min": 147.6,
+      "longstate_tokens": 3301
+    }
+  }
+]

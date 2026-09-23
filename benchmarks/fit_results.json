@@ -1,0 +1,46 @@
+{
+  "best_noul_variant": "true_statement",
+  "variant_scores": {
+    "bare": 0.1031,
+    "holds": 0.1031,
+    "true_statement": 0.0856,
+    "applies": 0.1318
+  },
+  "temperature": {
+    "noul": {
+      "tau": 1.2,
+      "fit_loss": 0.0849,
+      "valid_tau1": 0.2036,
+      "valid_fitted": 0.1957
+    },
+    "choice": {
+      "tau": 1.3,
+      "fit_loss": 0.0021,
+      "valid_tau1": 0.0002,
+      "valid_fitted": 0.0013
+    },
+    "score": {
+      "tau": 0.8,
+      "fit_loss": 0.1765,
+      "valid_tau1": 0.0947,
+      "valid_fitted": 0.099
+    },
+    "global": {
+      "tau": 1.35,
+      "fit_loss": 0.092,
+      "valid_tau1": 0.1187,
+      "valid_fitted": 0.1114
+    },
+    "noul_platt": {
+      "a": 0.5,
+      "b": 0.4,
+      "fit_loss": 0.0767,
+      "valid_raw": 0.2036,
+      "valid_platt": 0.178
+    },
+    "score_anchor": {
+      "plain": 0.1806,
+      "anchored": 0.286
+    }
+  }
+}
