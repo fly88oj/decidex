@@ -87,7 +87,7 @@ produced the released adapters:
 ```bash
 # decidex-core-8b (lineage r1; internal round v7) — flagship (84/86): 8B BF16, LoRA r=32
 HF_HOME=... DECIDEX_DEVICE=cuda:0 .venv/Scripts/python benchmarks/distill_train.py \
-  --model <Qwen3-8B> --dtype auto --dataset benchmarks/distill_dataset_v4.jsonl \
+  --model <Qwen3-8B> --dtype auto --dataset /tmp/train-core.jsonl \
   --epochs 2 --batch-size 4 --grad-accum 2 --lora-r 32 \
   --out benchmarks/adapters/decidex-core-8b
 
@@ -104,7 +104,7 @@ bs ≤ 4 + grad-accum on 24GB; 16GB GPUs must train through int4 QLoRA
 
 ## 5. Evaluation of an adapter (against stored official answers)
 
-The official answers for the 87-question comparison corpus are committed
+The official answers for the 86-question scored comparison corpus are committed
 (`benchmarks/comparison_raw.json`), so adapter evaluation needs no API:
 
 ```bash

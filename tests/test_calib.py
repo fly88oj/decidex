@@ -73,3 +73,13 @@ class TestRoundDistribution:
         probs = softmax([5.0, 0.0, 0.0])
         rounded = round_distribution(probs)
         assert rounded.index(max(rounded)) == 0
+
+    def test_many_options_never_negative(self):
+        # Regression: round-and-absorb-drift could push the argmax below zero
+        # when most of 200 options round up (K >= ~80 adversarial case).
+        probs = [0.005051] * 190 + [0.004031] * 10
+        assert sum(probs) == pytest.approx(1.0, abs=1e-12)
+        rounded = round_distribution(probs)
+        assert all(p >= 0.0 for p in rounded)
+        assert sum(rounded) == pytest.approx(1.0, abs=1e-9)
+        assert rounded.index(max(rounded)) == 0

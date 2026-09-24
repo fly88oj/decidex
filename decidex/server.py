@@ -17,6 +17,7 @@ answer shapes: score = sum(i * p_i), confidence = clamp((K*p_max - 1)/(K - 1),
 
 from __future__ import annotations
 
+import hmac
 import os
 import threading
 from contextlib import asynccontextmanager
@@ -26,7 +27,7 @@ from fastapi import FastAPI, Request
 from fastapi.concurrency import run_in_threadpool
 from fastapi.responses import JSONResponse
 
-from decidex import MODEL_ALIAS, MODEL_ID
+from decidex import MODEL_ALIAS, MODEL_ID, __version__
 from decidex.calib import confidence, round_distribution, weighted_score
 from decidex.engines.base import Engine
 from decidex.render import render_state, render_text
@@ -34,6 +35,7 @@ from decidex.render import render_state, render_text
 MAX_CHOICE_OPTIONS = 255
 MIN_SCORE_LEVELS = 1   # official openapi.json: min_length=1 (docs prose recommends 2+)
 MAX_SCORE_LEVELS = 26  # letter-readout capacity; official docs prose says up to 10
+RELEASE_DATE = "2026-09-21"  # listed for every entry in GET /v1/models
 
 # Accepted model names. Beyond the Decidex ids, the official Jev ids are
 # accepted so unmodified client code written against the real API can be
@@ -267,7 +269,10 @@ def estimate_usage(engine: Engine, state: Any, questions: dict) -> dict[str, int
         texts.append(render_text(question.get("instructions")))
         criteria = question.get("criteria")
         if question["type"] == "choice":
-            texts.extend(str(k) if d is None else render_text(d) for k, d in criteria.items())
+            # matches the prompt text the engine scores: "key - description"
+            texts.extend(
+                str(k) if d is None else f"{k} - {render_text(d)}" for k, d in criteria.items()
+            )
         elif question["type"] == "score":
             texts.extend(render_text(level) for level in criteria)
         else:
@@ -309,7 +314,7 @@ def create_app(
             _app.state.engine = engine_factory()
         yield
 
-    app = FastAPI(title="Decidex — local System One decision API", version="1.0.0", lifespan=lifespan)
+    app = FastAPI(title="Decidex — local System One decision API", version=__version__, lifespan=lifespan)
     app.state.engine = engine
     app.state.api_key = api_key if api_key is not None else os.environ.get("DECIDEX_API_KEY")
     # GPU work is serialized by a lock (models are not safe for concurrent
@@ -337,7 +342,9 @@ def create_app(
         if expected and request.url.path != "/health":
             header = request.headers.get("authorization", "")
             scheme, _, token = header.partition(" ")
-            if scheme.lower() != "bearer" or token.strip() != expected:
+            if scheme.lower() != "bearer" or not hmac.compare_digest(
+                token.strip().encode("utf-8", "surrogateescape"), expected.encode("utf-8", "surrogateescape")
+            ):
                 return JSONResponse(
                     status_code=401,
                     content={"detail": "Missing or invalid API key."},
@@ -366,12 +373,12 @@ def create_app(
             {
                 "name": MODEL_ALIAS,
                 "description": "Decidex flagship alias; resolves to the current Decidex model.",
-                "release_date": "2026-09-21",
+                "release_date": RELEASE_DATE,
             },
             {
                 "name": MODEL_ID,
                 "description": "Decidex's served model: direct typed-logit readout over a frozen open LM.",
-                "release_date": "2026-09-21",
+                "release_date": RELEASE_DATE,
             },
         ]
         if engine and engine.model_id not in (MODEL_ID, MODEL_ALIAS):
@@ -379,7 +386,7 @@ def create_app(
                 {
                     "name": engine.model_id,
                     "description": f"Backing engine model for {MODEL_ALIAS} ({engine.name} engine).",
-                    "release_date": "2026-09-21",
+                    "release_date": RELEASE_DATE,
                 }
             )
         return {"models": model_entries}
@@ -395,7 +402,10 @@ def create_app(
         # Reject oversized bodies before JSON parsing (the official API caps
         # at 64k input tokens; a hard byte limit here is the DoS floor).
         max_body = int(os.environ.get("DECIDEX_MAX_BODY_BYTES", 10 * 1024 * 1024))
-        content_length = int(request.headers.get("content-length", 0))
+        try:
+            content_length = int(request.headers.get("content-length", 0))
+        except ValueError:
+            content_length = max_body + 1  # unparseable length: treat as oversized
         if content_length > max_body:
             raise ApiError(413, f"Request body too large ({content_length} bytes; limit {max_body}).")
         try:
@@ -414,37 +424,40 @@ def create_app(
                     "model",
                 )
 
-        def run_evaluation() -> tuple[dict, dict]:
-            """Slot-guarded, GPU-serialized evaluation + usage accounting.
+        # Context limit, mirroring the official 64k budget for state+questions.
+        # Engines may declare a smaller practical limit (e.g. the LLM engine's
+        # max_input_tokens); the env var sets the server-wide cap (0 = unlimited).
+        engine_limit = getattr(engine, "max_input_tokens", None)
+        server_limit = int(os.environ.get("DECIDEX_MAX_INPUT_TOKENS", 65536))
+        limits = [x for x in (engine_limit, server_limit) if x]
+        input_limit = min(limits) if limits else None
 
-            Runs in the threadpool so the event loop stays responsive, and
-            holds the engine lock so concurrent requests queue instead of
-            racing the model.
+        def run_evaluation() -> tuple[dict, dict]:
+            """Slot-guarded, GPU-serialized evaluation with usage-first gating.
+
+            Usage is estimated (CPU-only) before any GPU work so oversized
+            requests are rejected without a wasted forward pass. Runs in the
+            threadpool so the event loop stays responsive; the engine lock
+            serializes forward passes, since models are not safe for
+            concurrent use.
             """
             slots: threading.Semaphore = app.state.eval_slots
             if not slots.acquire(blocking=False):
                 raise ApiError(429, "Too many concurrent evaluations; retry shortly.")
             try:
+                usage = estimate_usage(engine, state, questions)
+                if input_limit is not None and usage["input_tokens"] > input_limit:
+                    raise _invalid(
+                        f"Request needs ~{usage['input_tokens']} input tokens; limit is {input_limit}.",
+                        "state",
+                    )
                 with app.state.eval_lock:
                     answers = evaluate(engine, state, questions)
-                    usage = estimate_usage(engine, state, questions)
                 return answers, usage
             finally:
                 slots.release()
 
         answers, usage = await run_in_threadpool(run_evaluation)
-
-        # Context limit, mirroring the official 64k budget for state+questions.
-        # Engines may declare a smaller practical limit (e.g. the LLM engine's
-        # max_input_tokens); env var sets the server-wide cap.
-        engine_limit = getattr(engine, "max_input_tokens", None)
-        server_limit = int(os.environ.get("DECIDEX_MAX_INPUT_TOKENS", 65536))
-        limit = min(x for x in (engine_limit, server_limit) if x)
-        if usage["input_tokens"] > limit:
-            raise _invalid(
-                f"Request needs ~{usage['input_tokens']} input tokens; limit is {limit}.",
-                "state",
-            )
 
         return {"model": resolved, "answers": answers, "usage": usage}
 

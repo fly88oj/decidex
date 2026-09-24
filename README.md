@@ -186,7 +186,7 @@ JS divergence 0.0025; documented root causes for the remaining noul/score gaps.
 | Env var / flag | Default | Notes |
 |---|---|---|
 | `--engine` | `llm` (serve) / `stub` (demo) | `llm` \| `embedding` \| `stub` |
-| `--model` | engine default (Qwen/Qwen3-4B / all-MiniLM-L6-v2) | HF model name or local path; any causal LM works |
+| `--model` / `DECIDEX_MODEL` | engine default (Qwen/Qwen3-4B / all-MiniLM-L6-v2) | HF model name or local path; any causal LM works |
 | `--temperature` | 1.0 (llm) / 0.05 (embedding) | probability sharpness; raise to soften overconfident logits |
 | `--device` / `DECIDEX_DEVICE` | auto cuda→cpu | pick a GPU on multi-GPU machines, e.g. `cuda:1` |
 | `--api-key` / `DECIDEX_API_KEY` | none (open locally) | when set, Bearer auth is enforced |
@@ -195,18 +195,18 @@ JS divergence 0.0025; documented root causes for the remaining noul/score gaps.
 | `DECIDEX_PREFIX_REUSE` | 1 | KV prefix reuse: one forward per shared state instead of one per question |
 | `DECIDEX_PREFIX_CACHE_GB` | 4 | LRU budget (GB) for cross-request state-prefix KV caches; 0 disables |
 | `DECIDEX_MAX_QUEUE` | 8 | max concurrently-waiting evaluations; beyond that, 429 + `Retry-After` |
+| `DECIDEX_MAX_BODY_BYTES` | 10485760 | request-body byte cap (DoS floor, rejected with 413) |
 | `--lora` / `DECIDEX_LORA` | none | optional LoRA adapter distilled from the official API (see COMPARISON.md §7) |
 | `--dtype` | `auto` | `int8` / `int4` bitsandbytes quantization — fits 7–8B models in 16GB |
+| `HF_HOME` | `~/.cache/huggingface` | model cache; point at a large drive |
 
 **Recommended tiers** (measured against the official API, `COMPARISON.md` §9-10):
 latency `Qwen3-4B` (~49ms, decision agreement 0.885); 16GB GPUs
 `Qwen3-8B --dtype int4 --lora benchmarks/adapters/decidex-core-8b` (~80ms,
 0.923); best agreement on a 24GB GPU `Qwen3-8B --lora
-benchmarks/adapters/decidex-core-8b` (~64ms, total 84/86, choice 16/16,
+benchmarks/adapters/decidex-core-8b` (~64ms, total 84/86, choice 23/23,
 score modal 0.909) or `adapters/decidex-true-8b` (noul 52/52 perfect,
 noul MAE 0.061).
-| `HF_HOME` | `~/.cache/huggingface` | model cache; point at a large drive |
-
 > Network tip: if PyPI is slow from your network, install with
 > `-i https://mirrors.aliyun.com/pypi/simple/ --no-cache-dir`; HuggingFace
 > direct downloads generally work.

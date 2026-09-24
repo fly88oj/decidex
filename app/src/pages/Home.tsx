@@ -24,7 +24,7 @@ export default function Home() {
     <main className="mx-auto max-w-6xl px-4 py-12 md:px-6">
       {/* Hero */}
       <section className="mb-16 text-center">
-        <img src="/decidex/logos/logo.svg" alt="Decidex logo" className="mx-auto mb-4 h-20 w-20 rounded-2xl" />
+        <img src="logos/logo.svg" alt="Decidex logo" className="mx-auto mb-4 h-20 w-20 rounded-2xl" />
         <Badge variant="outline" className="mb-4 text-xs tracking-widest">OPEN SOURCE · LOCAL · API-COMPATIBLE</Badge>
         <h1 className="mb-4 text-5xl font-bold tracking-tight">
           State in. Typed decisions out.
@@ -35,19 +35,21 @@ export default function Home() {
           An open reimplementation of the Jev decision model that runs entirely on
           your machine. Your data never leaves your GPU — no API key to buy,
           no rate limit to hit, no cloud to trust. Clone the repo, run one
-          command, and you have a decision engine that answers in under 50
+          command, and you have a decision engine that answers in ~50
           milliseconds.
         </p>
         <div className="flex flex-wrap items-center justify-center gap-3">
-          <Link to="/api">
-            <button className="flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-medium text-primary-foreground hover:bg-primary/90">
-              Get Started <ArrowRight className="h-4 w-4" />
-            </button>
+          <Link
+            to="/usage"
+            className="flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-medium text-primary-foreground hover:bg-primary/90"
+          >
+            Get Started <ArrowRight className="h-4 w-4" />
           </Link>
-          <Link to="/performance">
-            <button className="rounded-lg border px-6 py-3 text-sm font-medium hover:bg-muted">
-              View Benchmarks
-            </button>
+          <Link
+            to="/performance"
+            className="rounded-lg border px-6 py-3 text-sm font-medium hover:bg-muted"
+          >
+            View Benchmarks
           </Link>
         </div>
       </section>
@@ -56,7 +58,7 @@ export default function Home() {
       <section className="mb-16 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {[
           { icon: Zap, label: 'Latency', value: '49ms', sub: 'on your own GPU — no network round-trip' },
-          { icon: Shield, label: 'API Compat', value: '100%', sub: 'drop-in: swap one URL, both official SDKs pass all 8 checks' },
+          { icon: Shield, label: 'API Compatible', value: '100%', sub: 'swap one base URL, both official SDKs pass all 8 checks' },
           { icon: Cpu, label: 'Agreement', value: '97.7%', sub: '84/86 vs official Jev, independently measured' },
           { icon: Download, label: 'GGUF', value: '5.0GB', sub: 'fits a gaming laptop, runs offline at zero per-call cost' },
         ].map(({ icon: Icon, label, value, sub }) => (
@@ -100,7 +102,7 @@ export default function Home() {
         <Card className="flex flex-col">
           <CardHeader>
             <CardTitle>Agreement with Official Jev</CardTitle>
-            <CardDescription>87-question comparison corpus, core-8b adapter</CardDescription>
+            <CardDescription>86-question comparison corpus, core-8b adapter</CardDescription>
           </CardHeader>
           <CardContent className="flex-1">
             <ResponsiveContainer width="100%" height={280}>
@@ -120,7 +122,7 @@ export default function Home() {
         </Card>
       </section>
 
-            {/* Architecture */}
+      {/* Architecture */}
       <section className="mb-16">
         <Card>
           <CardHeader>
@@ -129,7 +131,7 @@ export default function Home() {
           </CardHeader>
           <CardContent>
             <img
-              src="/decidex/diagrams/architecture.svg"
+              src="diagrams/architecture.svg"
               alt="Decidex architecture diagram"
               className="mx-auto w-full max-w-3xl"
             />
@@ -163,7 +165,10 @@ export default function Home() {
             <CardTitle className="flex items-center gap-2">
               <Download className="h-5 w-5 text-primary" /> Download from HuggingFace
             </CardTitle>
-            <CardDescription>All adapters and GGUF builds are published and ready to use</CardDescription>
+            <CardDescription>
+              All adapters and GGUF builds are published and ready to use.
+              Base models (Qwen3-4B / 8B) download automatically from Qwen's official page on first run.
+            </CardDescription>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">

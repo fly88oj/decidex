@@ -12,7 +12,7 @@ def build_engine(kind: str, model: str | None = None, **kwargs) -> Engine:
     SDK, tests) runs without any ML stack installed.
     """
     if kind == "stub":
-        return StubEngine(**kwargs)
+        return StubEngine(model_id=model or "stub-1", **kwargs)
     if kind == "embedding":
         from decidex.engines.embedding import EmbeddingEngine
 

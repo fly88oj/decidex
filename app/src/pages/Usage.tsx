@@ -191,6 +191,16 @@ Answer:`}
           All adapters and GGUF builds are published on HuggingFace. Download with the CLI or
           <code className="mx-1 rounded bg-muted px-1">scripts/fetch_models.py</code> in the repo.
         </p>
+        <p className="mb-4 text-sm text-muted-foreground">
+          <strong className="text-foreground">Base models</strong> are downloaded separately from
+          Qwen's official HuggingFace page — they are not our artifacts.
+          <br />
+          4B tier: <code className="rounded bg-muted px-1">Qwen/Qwen3-4B</code> (safetensors,
+          auto-downloaded by <code className="rounded bg-muted px-1">transformers</code> on first run).
+          <br />
+          8B tier: <code className="rounded bg-muted px-1">Qwen/Qwen3-8B</code> (safetensors,
+          auto-downloaded by <code className="rounded bg-muted px-1">transformers</code> on first run).
+        </p>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>

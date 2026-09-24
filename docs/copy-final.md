@@ -13,7 +13,7 @@ One forward pass.
 An open reimplementation of the Jev decision model that runs entirely on
 your machine. Your data never leaves your GPU — no API key to buy, no
 rate limit to hit, no cloud to trust. Clone the repo, run one command,
-and you have a decision engine that answers in under 50 milliseconds.
+and you have a decision engine that answers in ~50 milliseconds.
 
 ### Key Metrics Cards
 1. **49ms** — Latency — "on your GPU — no network round-trip, no queue"
@@ -93,7 +93,7 @@ metered, no rate limit vs. capped.
 We trained five times, measured every round, and kept what worked.
 The final adapter (core-8b) agrees with the official API on 98.1% of
 yes/no decisions and 100% of multi-choice selections, with probability
-MAE of 0.071 on the 87-question comparison corpus.
+MAE of 0.071 on the 86-question comparison corpus.
 
 ### Fan-out Scaling
 Ask one question or thirty — the response time barely changes. The
@@ -106,8 +106,8 @@ the same KV cache.
 - **Cross-request LRU Cache**: the second time you ask about a document,
   it takes 193ms instead of 2.2 seconds. Your users notice.
 - **Official-API Distillation**: we didn't guess what the official model
-  would say — we asked it 1,300 times (with ~14 questions per call, via
-  fan-out) and trained on the 17,954 actual answers. Not synthetic, not
+  would say — we asked it thousands of times across four generation
+  rounds (via fan-out) and trained on the 17,954 actual answers. Not synthetic, not
   community data — the official model's real outputs, used as the teacher.
   Total data cost: $0.35.
 
@@ -144,8 +144,8 @@ synthetic labels, not community data. Fork it, audit it, rebuild it.
 
 ### Pipeline Description
 Four steps, all reproducible from the repo:
-1. Call the official API 1,300 times to build the training set
-   (fan-out gives 17,954 samples; total cost: $0.35)
+1. Call the official API across four generation rounds to build the
+   training set (fan-out gives 17,954 samples; total cost: $0.35)
 2. Train a LoRA adapter (r=32 on Qwen3-8B, frozen base) — about 80
    minutes on a modern GPU
 3. Evaluate against committed official answers — 2 minutes, no API

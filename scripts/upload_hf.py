@@ -9,6 +9,7 @@ decidex-distill-data (full training corpus).
 from __future__ import annotations
 
 import argparse
+import os
 import shutil
 from pathlib import Path
 
@@ -34,8 +35,10 @@ def main() -> None:
                         help="upload a single repo (core|true|draft|gguf|data)")
     args = parser.parse_args()
 
-    import os
-    api = HfApi(token=os.environ.get("HF_TOKEN", ""))
+    token = os.environ.get("HF_TOKEN", "")
+    if not token:
+        raise SystemExit("HF_TOKEN is not set; get a write token at https://huggingface.co/settings/tokens")
+    api = HfApi(token=token)
 
     hf = ROOT / "hf-release"
 

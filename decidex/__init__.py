@@ -7,7 +7,7 @@ official API evidence this package replicates.
 __version__ = "1.0.0"
 
 MODEL_ALIAS = "decidex-latest"
-MODEL_ID = "decidex-1.0.0"
+MODEL_ID = f"decidex-{__version__}"
 DEFAULT_BASE_URL = "http://127.0.0.1:8600"
 
 # SDK re-exports at the bottom (constants must be defined first to avoid

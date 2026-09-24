@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Routes, Route, Link, useLocation } from 'react-router'
+import { Routes, Route, Link, Navigate, useLocation } from 'react-router'
 import { Github, Zap, Package, BarChart3, Brain, ShieldCheck, Menu, X } from 'lucide-react'
 import Home from './pages/Home'
 import Compatibility from './pages/Compatibility'
@@ -9,7 +9,7 @@ import Usage from './pages/Usage'
 
 const nav = [
   { to: '/', label: 'Home', icon: Zap },
-  { to: '/usage', label: 'Usage and Models', icon: Package },
+  { to: '/usage', label: 'Usage', icon: Package },
   { to: '/performance', label: 'Performance', icon: BarChart3 },
   { to: '/compatibility', label: 'Compatibility', icon: ShieldCheck },
   { to: '/training', label: 'Training', icon: Brain },
@@ -60,6 +60,7 @@ export default function App() {
               className="rounded-md p-2 hover:bg-muted md:hidden"
               onClick={() => setOpen(!open)}
               aria-label="Toggle menu"
+              aria-expanded={open}
             >
               {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
@@ -102,6 +103,7 @@ export default function App() {
         <Route path="/performance" element={<Performance />} />
         <Route path="/training" element={<Training />} />
         <Route path="/usage" element={<Usage />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       <footer className="border-t px-4 py-8 text-center text-sm text-muted-foreground">
         <p>Decidex — local Jev API replication. MIT License.</p>

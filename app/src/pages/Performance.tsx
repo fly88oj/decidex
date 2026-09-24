@@ -1,7 +1,7 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { AlertTriangle } from 'lucide-react'
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, LineChart, Line, Legend } from 'recharts'
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line, Legend } from 'recharts'
 
 const tierData = [
   { name: '4B Base', latency: 49, agreement: 88.5 },
@@ -221,7 +221,7 @@ export default function Performance() {
             { title: 'KV Prefix Reuse', desc: 'One forward pass per shared state; every question continues from that cache. 11.4× speedup on long documents.' },
             { title: 'Cross-request LRU Cache', desc: 'Repeat queries over the same state skip prefill entirely (4GB budget). Cold 2.2s → warm 193ms.' },
             { title: 'Batch Chunk Tuning', desc: 'CHUNK=16 measured 20% faster than 8 on fan-out, flat beyond. OOM backoff halves batch automatically.' },
-            { title: 'Official-API Distillation', desc: '17,954 samples of the official Jev API\'s actual outputs, 4 rounds + active mining. Noul MAE −48%.' },
+            { title: 'Official-API Distillation', desc: '17,954 samples of the official Jev API\'s actual outputs, 4 rounds + active mining. Noul MAE 0.129 → 0.061.' },
           ].map(({ title, desc }) => (
             <Card key={title}>
               <CardContent className="pt-6">

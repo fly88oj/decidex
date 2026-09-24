@@ -270,6 +270,20 @@ class TestOtherEndpoints:
             assert entry["description"] and entry["release_date"]
 
 
+class TestInputTokenLimit:
+    def test_oversized_request_rejected_422(self, client, monkeypatch):
+        monkeypatch.setenv("DECIDEX_MAX_INPUT_TOKENS", "1")
+        response = client.post("/v1/systemone", json=VALID_REQUEST)
+        assert response.status_code == 422
+        assert _loc(response) == ["body", "state"]
+
+    def test_limit_zero_means_unlimited(self, client, monkeypatch):
+        # 0 disables the server-wide cap; it must not crash the request.
+        monkeypatch.setenv("DECIDEX_MAX_INPUT_TOKENS", "0")
+        response = client.post("/v1/systemone", json=VALID_REQUEST)
+        assert response.status_code == 200
+
+
 class TestAuth:
     def test_401_without_key(self):
         app = create_app(engine=StubEngine(), api_key="secret")

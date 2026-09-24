@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
-import { CheckCircle2, XCircle, AlertTriangle } from 'lucide-react'
+import { CheckCircle2, AlertTriangle } from 'lucide-react'
 import { CodeBlock } from '@/components/CodeBlock'
 
 const contractItems = [
@@ -20,14 +20,14 @@ const contractItems = [
 ]
 
 const sdkTests = [
-  { test: 'TypeSafeClient(api_key, base_url)', result: 'Python SDK 0.7.0', pass: true },
-  { test: 'system_one() → typed answers', result: '.noul / .choice / .score all work', pass: true },
-  { test: 'Grouped accessors', result: '.nouls / .choices / .scores', pass: true },
-  { test: 'Dict-style questions', result: 'both dict and object forms', pass: true },
-  { test: 'models.list()', result: 'ModelMetadataList shape', pass: true },
-  { test: '422 error → TypeSafeUnprocessableEntityError', result: 'correct exception type', pass: true },
-  { test: 'Env var redirect (TYPESAFE_BASE_URL)', result: 'zero code change', pass: true },
-  { test: 'JS SDK (TypeSafeClient)', result: 'systemOne + models.list', pass: true },
+  { test: 'TypeSafeClient(api_key, base_url)', result: 'Python SDK 0.7.0' },
+  { test: 'system_one() → typed answers', result: '.noul / .choice / .score all work' },
+  { test: 'Grouped accessors', result: '.nouls / .choices / .scores' },
+  { test: 'Dict-style questions', result: 'both dict and object forms' },
+  { test: 'models.list()', result: 'ModelMetadataList shape' },
+  { test: '422 error → TypeSafeUnprocessableEntityError', result: 'correct exception type' },
+  { test: 'Env var redirect (TYPESAFE_BASE_URL)', result: 'zero code change' },
+  { test: 'JS SDK (TypeSafeClient)', result: 'systemOne + models.list' },
 ]
 
 export default function ApiCompat() {
@@ -43,13 +43,9 @@ export default function ApiCompat() {
       <section className="mb-12">
         <h2 className="mb-4 text-2xl font-semibold">Official SDK Verification</h2>
         <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
-          {sdkTests.map(({ test, result, pass }) => (
+          {sdkTests.map(({ test, result }) => (
             <div key={test} className="flex items-start gap-3 rounded-lg border p-4">
-              {pass ? (
-                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-green-500" />
-              ) : (
-                <XCircle className="mt-0.5 h-5 w-5 shrink-0 text-red-500" />
-              )}
+              <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-green-500" role="img" aria-label="pass" />
               <div>
                 <div className="font-medium">{test}</div>
                 <div className="text-sm text-muted-foreground">{result}</div>
@@ -81,9 +77,9 @@ export default function ApiCompat() {
                     <TableCell className="text-sm">{decidex}</TableCell>
                     <TableCell>
                       {status === 'pass' ? (
-                        <CheckCircle2 className="h-4 w-4 text-green-500" />
+                        <CheckCircle2 className="h-4 w-4 text-green-500" role="img" aria-label="pass" />
                       ) : (
-                        <AlertTriangle className="h-4 w-4 text-yellow-500" />
+                        <AlertTriangle className="h-4 w-4 text-yellow-500" role="img" aria-label="note" />
                       )}
                     </TableCell>
                   </TableRow>

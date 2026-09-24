@@ -18,8 +18,9 @@ from __future__ import annotations
 
 import math
 
-# Probabilities are rounded to this many decimals in responses; rounding drift
-# is corrected onto the argmax so the distribution still sums to exactly 1.0.
+# Probabilities are rounded to this many decimals in responses; largest-
+# remainder rounding (argmax first) keeps them non-negative, summing to
+# exactly 1.0, with a stable reported winner.
 PROB_DECIMALS = 4
 
 
@@ -53,15 +54,24 @@ def weighted_score(probs: list[float]) -> float:
 def round_distribution(probs: list[float], decimals: int = PROB_DECIMALS) -> list[float]:
     """Round probabilities so they still sum to exactly 1.0.
 
-    Drift from rounding is absorbed by the largest entry (argmax), which keeps
-    the reported winner stable and mirrors the official examples where the
-    probabilities visibly sum to 1.
+    Largest-remainder rounding: floor every entry (never negative), then hand
+    the leftover units to the largest fractional parts — the argmax first, so
+    the reported winner never changes. A plain round-and-absorb-drift scheme
+    can push the argmax below zero when many small entries all round up
+    (K >= ~80 options).
     """
     if not probs:
         return []
-    rounded = [round(p, decimals) for p in probs]
-    drift = round(1.0 - sum(rounded), decimals)
-    if drift:
-        top = max(range(len(rounded)), key=lambda i: rounded[i])
-        rounded[top] = round(rounded[top] + drift, decimals)
-    return rounded
+    scale = 10 ** decimals
+    scaled = [p * scale for p in probs]
+    units = [math.floor(s) for s in scaled]
+    leftover = int(round(sum(scaled))) - sum(units)
+    argmax = max(range(len(probs)), key=lambda i: probs[i])
+    rest = sorted(
+        (i for i in range(len(probs)) if i != argmax),
+        key=lambda i: scaled[i] - units[i],
+        reverse=True,
+    )
+    for i in [argmax, *rest][:leftover]:
+        units[i] += 1
+    return [u / scale for u in units]

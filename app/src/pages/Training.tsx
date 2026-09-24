@@ -5,8 +5,8 @@ import { CodeBlock } from '@/components/CodeBlock'
 const pipeline = [
   {
     step: '1. Generate Data',
-    desc: 'Call the official API 1,300 times via OpenRouter (fan-out: ~14 questions per call → 17,954 samples). Four rounds: broad sweep, score-heavy, balanced v2, active mining.',
-    cmd: `python benchmarks/distill_generate.py --states 800\npython benchmarks/distill_generate_v2.py --requests 3000\npython benchmarks/distill_active.py --states 500 --model <base>`,
+    desc: 'Call the official API thousands of times via OpenRouter to capture 17,954 samples of its actual outputs. Four rounds: broad sweep, score-heavy, balanced v2, active mining.',
+    cmd: `python benchmarks/distill_generate.py --states 800\npython benchmarks/distill_generate.py --states 500 \\\n    --score-heavy --seed 777 --out benchmarks/distill_dataset_score.jsonl\npython benchmarks/distill_generate_v2.py --requests 3000\npython benchmarks/distill_active.py --states 500 --seed 333777 \\\n    --model <base> --lora <adapter>`,
     cost: '< $0.35 total',
   },
   {
@@ -17,7 +17,7 @@ const pipeline = [
   },
   {
     step: '3. Evaluate',
-    desc: 'Compare adapter outputs against stored official answers (87-question corpus). No API calls needed — official answers are committed in benchmarks/comparison_raw.json.',
+    desc: 'Compare adapter outputs against stored official answers (86-question scored corpus). No API calls needed — official answers are committed in benchmarks/comparison_raw.json.',
     cmd: `python benchmarks/compare_official.py\npython benchmarks/diagnose_flips.py <adapter>`,
     cost: '~2 min',
   },
@@ -178,6 +178,7 @@ git clone https://github.com/fly88oj/decidex
 cd decidex && pip install -e ".[all,dev]"
 
 # 1. Rebuild training sets from committed base corpora
+# (active data is listed twice: double-weighted on purpose)
 cat benchmarks/distill_dataset.jsonl benchmarks/distill_dataset_score.jsonl \\
     benchmarks/distill_dataset_active.jsonl \\
     benchmarks/distill_dataset_active.jsonl > /tmp/train-core.jsonl

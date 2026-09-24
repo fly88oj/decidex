@@ -11,7 +11,7 @@ function highlight(code: string): Token[] {
   const tokens: Token[] = []
   const patterns: [RegExp, string][] = [
     [/#[^\n]*/g, 'cm'],
-    [/(["'])(?:(?=(\?))\2.)*?\1/g, 'str'],
+    [/(["'])(?:\\.|[^\\\n])*?\1/g, 'str'],
     [/\b(?:from|import|def|return|with|as|for|in|if|else|elif|try|except|raise|class|pass|not|and|or|is|lambda|while|break|continue|print|export|const|let|var|async|await|new)\b/g, 'kw'],
     [/\b(?:True|False|None|true|false|null|undefined)\b/g, 'kw'],
     [/\b\d+\.?\d*\b/g, 'num'],

@@ -4,6 +4,58 @@ All notable changes to this project are documented in this file.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+Post-v1.0.0 full-project review (code-review / ponytail-review /
+architecture pass).
+
+### Fixed (service)
+
+- **Input-token limit now gates before GPU work**: usage is estimated and
+  checked before the engine forward pass, so oversized requests are
+  rejected with 422 without a wasted evaluation. `DECIDEX_MAX_INPUT_TOKENS=0`
+  now means "unlimited" instead of crashing the request.
+- **`round_distribution` rewritten as largest-remainder rounding** with
+  argmax priority: probabilities can never go negative (possible before at
+  80+ options when most entries round up), always sum to exactly 1, and the
+  reported winner never flips.
+- Malformed `Content-Length` headers are rejected as oversized (413)
+  instead of raising a 500; API-key comparison is now constant-time
+  (`hmac.compare_digest`).
+- Choice usage accounting now includes option keys (they are part of the
+  scored prompt text). `build_engine("stub", model=...)` no longer silently
+  ignores the model name.
+
+### Fixed (website)
+
+- Home "Get Started" pointed at a nonexistent `/api` route (blank page) —
+  now `/usage`; unknown hash routes redirect to Home instead of rendering
+  blank.
+- Site assets (`logo.svg`, `architecture.svg`) used absolute `/decidex/`
+  paths that 404 outside a same-named subpath — now relative, working in
+  dev, root hosting, and subpath hosting.
+- CodeBlock string-highlighting regex never matched any string literal —
+  fixed; strings now highlight site-wide.
+- Fact alignment with `COMPARISON.md`/`REPRODUCE.md`: 86-question scored
+  corpus (was "87" in places), "Noul MAE 0.129 → 0.061" instead of a
+  "−48%" figure that belonged to an unreleased config, generation-round
+  call counts, "~50 ms" hero claim.
+
+### Fixed (docs)
+
+- `REPRODUCE.md` referenced a nonexistent `benchmarks/distill_dataset_v4.jsonl`
+  (correct target: `/tmp/train-core.jsonl`); README "choice 16/16" in the
+  84/86 corpus context corrected to 23/23; README env-var table completed
+  (`DECIDEX_MODEL`, `DECIDEX_MAX_BODY_BYTES`) and its detached `HF_HOME`
+  row re-attached.
+
+### Removed (website)
+
+- Unused dependencies (six `@fontsource/*` packages, `framer-motion`),
+  unimported `App.css`, dead duplicate `.code-block` CSS block and never-
+  emitted syntax classes, dead fail-branch in the Compatibility SDK list,
+  scaffold `my-app` package name.
+
 ## [3.0.0] - 2026-09-24
 
 **Renamed JevLike → Decidex** (the old name collided with the unrelated
