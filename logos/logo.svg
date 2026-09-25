@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" rx="96" fill="#0f172a"/>
+  <rect x="80" y="180" width="80" height="16" rx="8" fill="#64748b"/>
+  <rect x="80" y="220" width="56" height="16" rx="8" fill="#64748b"/>
+  <rect x="80" y="260" width="72" height="16" rx="8" fill="#64748b"/>
+  <rect x="80" y="300" width="40" height="16" rx="8" fill="#64748b"/>
+  <line x1="176" y1="256" x2="300" y2="256" stroke="#3b82f6" stroke-width="20" stroke-linecap="round"/>
+  <polygon points="296,226 336,256 296,286" fill="#3b82f6"/>
+  <rect x="352" y="180" width="80" height="40" rx="8" fill="#10b981"/>
+  <text x="392" y="207" text-anchor="middle" fill="white" font-family="monospace" font-size="20" font-weight="bold">✓</text>
+  <rect x="352" y="240" width="80" height="40" rx="8" fill="#8b5cf6" opacity="0.8"/>
+  <text x="392" y="267" text-anchor="middle" fill="white" font-family="monospace" font-size="18" font-weight="bold">%</text>
+  <rect x="352" y="300" width="80" height="40" rx="8" fill="#f59e0b" opacity="0.8"/>
+  <text x="392" y="327" text-anchor="middle" fill="white" font-family="monospace" font-size="18" font-weight="bold">#</text>
+</svg>
